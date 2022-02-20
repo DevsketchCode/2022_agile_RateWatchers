@@ -1,36 +1,52 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<head>
-    <meta charset="utf-8">
-    <title>Converter</title>
-    <link rel="stylesheet" href="convertstyle.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<main>
-    <h1>Currency Converter</h1>
-    <h2>Please enter a value in USD</h2>
-    <form>
-        <label for="UserInputAmount">Please enter an amount in USD</label>
-        <input type="number" id="UserInputAmount" name="UserInputAmount"><br>
-        <label for="UserConvertCurrency">Please select a currency to convert to:</label>
-        <select name="UserConvertCurrency" id="UserConvertCurrency">
-            <option value="Pesos">Pesos</option>
-            <option value="Euros">Euros</option>
-            <option value="RMB">RMB</option>
-        </select><br>
-        <input type="submit" id="UserSubmit" value="Convert">
-    </form>
-    <h2>Conversion will show here. So does the flag of the country to convert to.</h2>
-    <table>
-        <tr>
-            <th>You Entered Amount</th>
-            <th>Conversion Amount</th>
-            <th>Conversion Rate</th>
-        </tr>
-        <tr>
-            <td>[insert user entry]</td>
-            <td>[insert conversion amount]</td>
-            <td>[insert conversion rate]</td>
-        </tr>
-    </table>
-</main>
+    <head>
+        <meta charset="utf-8">
+        <title>Converter</title>
+        <link rel="stylesheet" href="convertstyle.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <main>
+        <!–– Section for Title for our project. ––>
+        <section>
+            <h1>Rate watcher</h1>
+            <h3>Currency Converter</h3>
+        </section>
+        <section>
+        <h2>Please follow the instructions below to convert.</h2>
+            <form>
+                <label for="UserInputAmount">Please enter an amount to convert</label>
+                <input type="number" id="UserInputAmount" name="UserInputAmount" min="0" value="00.01" step="0.01"><br>
+                <label for="UserConvertCurrency">Please select a currency to convert to:</label>
+                <select name="UserConvertCurrency" id="UserConvertCurrency">
+                    <option value="Pesos">Pesos</option>
+                    <option value="Euros">Euros</option>
+                    <option value="RMB">RMB</option>
+                </select><br><br>
+                <input type="submit" id="UserSubmit" value="Convert">
+            </form>
+        </section>
+        <section>
+            <h2>Your entry and results will show below.</h2>
+            <table>
+                <tr>
+                    <th>You Entered</th>
+                    <th>For Currency</th>
+                    <th>Converts to</th>
+                    <th>At Rate</th>
+                    <th>Flag of Currency</th>
+                </tr>
+                <tr>
+                    <td>[insert user entry       ]</td>
+                    <td>[insert flag             ]</td>
+                    <td>[insert conversion amount]</td>
+                    <td>[insert conversion rate]</td>
+                    <td>[insert flag           ]</td>
+                </tr>
+            </table>
+        </section>
+        <footer>
+            Convertor provided by Bruce, David, David, and Mason
+        </footer>
+    </main>
+</html>
