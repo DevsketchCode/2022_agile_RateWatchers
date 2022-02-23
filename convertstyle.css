@@ -1,5 +1,5 @@
 /* 
-CSS for Form
+CSS for website
 
 Hex colors selected
 1--black-coffee: #3c3744;
@@ -22,7 +22,7 @@ main {
 /*Stuling for Header 1*/
 h1 {
     font-size: 52px;
-    font-style: bold;
+    font-weight: bold;
     font-variant: normal;
     font-weight: 900;
     color: #b4c5e4;
