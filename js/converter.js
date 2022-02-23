@@ -1,12 +1,10 @@
 /*
 **********
 Script is designed to get the data from the submission form,
-validate the data, convert the currencies, display flags,
-and display the data in result fields.
+validate the data and convert the currencies.
 */
 
-// Event listener for the submit button contains the logic for converting amounts
-// as well as DOM manipulation.
+// Event listener for the submit button contains the logic for converting amounts.
 document.querySelector("#convertForm").addEventListener("submit", function() {
   
   // Gets the text from the input field 
