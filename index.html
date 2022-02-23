@@ -15,7 +15,7 @@
 
             <section>
             <h2>Please follow the instructions below to convert.</h2>
-                <form method="get" onsubmit="return false">
+                <form method="get" id="convertForm" onsubmit="return false">
                     <label for="UserInputAmount">Please enter an amount to convert</label>
                     <input type="text" id="UserInputAmount" name="UserInputAmount"><br>
                     <label for="UserConvertCurrency">Please select a currency to convert to:</label>
@@ -24,7 +24,7 @@
                         <option value="Euros">Euros</option>
                         <option value="RMB">RMB</option>
                     </select><br><br>
-                    <input type="submit" id="UserSubmit" value="Convert">
+                    <input type="submit" value="Convert">
                 </form>
             </section>
 
