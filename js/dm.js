@@ -10,15 +10,15 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   // Sets the flag for the current or country selected
   switch(document.querySelector("#UserConvertCurrency").value) {
     
-    case Pesos:
+    case Mexico:
     // TODO Add logic for flag
     break;
     
-    case Euros:
+    case Canada:
     // TODO Add logic for flag
     break;
     
-    case RMB:
+    case China:
     // TODO Add logic for flag
     break;
   }
