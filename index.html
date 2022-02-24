@@ -20,9 +20,9 @@
                     <input type="text" id="UserInputAmount" name="UserInputAmount"><br>
                     <label for="UserConvertCurrency">Please select the country for currency conversion:</label>
                     <select name="UserConvertCurrency" id="UserConvertCurrency">
-                        <option value="Pesos">Mexico</option>
-                        <option value="Euros">Canada</option>
-                        <option value="RMB">China</option>
+                        <option value="Mexico">Mexico</option>
+                        <option value="Canada">Canada</option>
+                        <option value="China">China</option>
                     </select><br><br>
                     <input type="submit" value="Convert">
                 </form>
@@ -41,13 +41,13 @@
                         <th>Rate</th>
                     </tr>
                     <tr>
-                        <td>[insert user entry amount   ]</td>
-                        <td>[insert currency name   ]</td>
-                        <td>[insert flag            ]</td>
-                        <td>[insert converted amount]</td>
-                        <td>[insert currency name   ]</td>
-                        <td>[insert flag           ]</td>
-                        <td>[insert conversion rate]</td>
+                        <td id="UserEntry">[insert user entry amount   ]</td>
+                        <td id="OriginCurrencyName">[insert currency name   ]</td>
+                        <td id="OriginFlag">[insert flag            ]</td>
+                        <td id="ConvertedAmount">[insert converted amount]</td>
+                        <td id="NewCurrencyName">[insert currency name   ]</td>
+                        <td id="NewFlag">[insert flag           ]</td>
+                        <td id="Rate">[insert conversion rate]</td>
                     </tr>
                 </table>
             </section>
