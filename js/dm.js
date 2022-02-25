@@ -49,4 +49,5 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   
   originFlagLabel.appendChild(originFlagImage);
   newFlagLabel.appendChild(newFlagImage);
+
 });
