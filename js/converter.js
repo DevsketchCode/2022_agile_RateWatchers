@@ -12,7 +12,7 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   
   // Validates only numbers are submitted and refreshes the input field
   // when invalid data is submitted.
-  if(userInput == '' || isNaN(userInput) ){
+  if(userInput === '' || isNaN(userInput) ){
     alert("Make sure you only enter a number!");
     document.querySelector("#UserInputAmount").value = "";
   }
