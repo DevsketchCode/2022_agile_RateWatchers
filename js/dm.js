@@ -11,10 +11,13 @@ function ShowField(id) {
 }
 
 // Fill Results Fields
-function FillConversionResultsTable(amountEntered, originCurrency, newCurrency) {
+function FillConversionResultsTable(amountEntered, originCurrency, newCurrency, newFinalAmount, newFinalRate) {
   document.querySelector("#AmountEntered").innerHTML = amountEntered;
   document.querySelector("#OriginCurrencyName").innerHTML = originCurrency;
   document.querySelector("#NewCurrencyName").innerHTML = newCurrency;
+  document.querySelector("#ConvertedAmount").innerHTML = newFinalAmount;
+  document.querySelector("#Rate").innerHTML = newFinalRate;
+  
 }
 
 // Display Country Conversion if data entered in currency field
@@ -39,6 +42,10 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   // Get Selected Convert To Currency Text
   var selectedToCurrency = document.querySelector("#UserConvertCurrency");
   var newCurrencyName = selectedToCurrency.options[selectedToCurrency.selectedIndex].text;
+  
+  // Get converted values from other file
+  var newFinalAmount = newAmount;
+  var newFinalRate = currencyRate;
 
   var originCountryFlag = "usa";
   var newCountryFlag;
@@ -76,7 +83,7 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   newFlagLabel.appendChild(newFlagImage);
 
   // Populate the Results Fields
-  FillConversionResultsTable(amountEntered, originCurrencyName, newCurrencyName);
+  FillConversionResultsTable(amountEntered, originCurrencyName, newCurrencyName, newFinalAmount, newFinalRate);
 
   // Display Converted Results Div on Convert Button Click
   resultsDiv = document.querySelector("#ConvertedResults");
