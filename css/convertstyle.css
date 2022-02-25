@@ -88,6 +88,13 @@ footer {
   padding: 1%;
 }
 
+/* Administration Link in Footer */
+footer a {
+  color: #ffffff;
+  font-size: 0.8em;
+}
+
+
 /* Styling for table headers */
 table th {
   background-color: #090c9b;
@@ -105,6 +112,7 @@ table td {
   color: #3c3744;
 }
 
+/* Original Currency Country and Type */
 #OriginalCurrencyName {
   display: inline-block;
 }
