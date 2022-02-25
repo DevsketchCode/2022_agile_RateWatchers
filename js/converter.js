@@ -12,8 +12,8 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   
   // Validates only numbers are submitted and refreshes the input field
   // when invalid data is submitted.
-  if(userInput === '' || isNaN(userInput) ){
-    alert("Make sure you only enter a number!");
+  if(userInput === 0 || isNaN(userInput)){
+    alert("You did not input a valid currency value! Please try again.");
     document.querySelector("#UserInputAmount").value = "";
   }
 
