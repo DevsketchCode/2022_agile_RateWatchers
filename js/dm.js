@@ -7,7 +7,7 @@ display the data in result fields, and any other DOM manipulation.
 // Event listener for the submit button contains the logic for DOM manipulation.
 document.querySelector("#convertForm").addEventListener("submit", function() {
   
-  var countrySelected = document.querySelector("#UserConvertCurrency").value
+  var countrySelected = document.querySelector("#UserConvertCurrency").value;
   var originCountryFlag = "usa";
   var newCountryFlag;
   
@@ -18,15 +18,15 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   switch(countrySelected) {
     
     case "Mexico":
-    newCountryFlag = "mexico"
+    newCountryFlag = "mexico";
     break;
     
     case "Canada":
-    newCountryFlag = "canada"
+    newCountryFlag = "canada";
     break;
     
     case "China":
-    newCountryFlag = "china"
+    newCountryFlag = "china";
     break;
   }
   
