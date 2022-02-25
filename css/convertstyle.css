@@ -9,96 +9,114 @@ Hex colors selected
 5--ivory: #fbfff1;
 */
 
-/*Styling for most of main part, including form and text, overwritten when necessary*/
+/* Styling for most of main part, including form and text, overwritten when necessary */
 main {
-    background-color: #3c3744;
-    color: #fbfff1;
-    padding: 1%;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    line-break: loose;
-    line-height: 20px;
+  background-color: #3c3744;
+  color: #fbfff1;
+  padding: 1%;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  line-break: loose;
+  line-height: 20px;
 }
 
-/*Stuling for Header 1*/
+/* Styling for Header 1 */
 h1 {
-    font-size: 52px;
-    font-weight: bold;
-    font-variant: normal;
-    font-weight: 900;
-    color: #b4c5e4;
+  font-size: 52px;
+  font-variant: normal;
+  font-weight: 900;
+  color: #b4c5e4;
 }
 
-/*Styling for Header 2*/
+/* Styling for Header 2 */
 h2 {
-    font-size:  44px;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: 700;
+  font-size: 44px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
 }
 
-/*Styling for Header 3*/
+/* Styling for Header 3 */
 h3 {
-    font-size:  32px;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: 500;
+  font-size: 32px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
 }
 
-/*Styling for form text*/
-input[type=number], select {
-    background-color: #fbfff1;
-    color: #090c9b;
-    border: 3px solid #3066be;
-    font-size: 16px;
-    width: fit-content;
-    padding: 2px 8px;
-    box-sizing: border-box;
+/* Styling for form text */
+input[type="number"],
+select {
+  background-color: #fbfff1;
+  color: #090c9b;
+  border: 3px solid #3066be;
+  font-size: 16px;
+  width: fit-content;
+  padding: 2px 8px;
+  box-sizing: border-box;
 }
 
-/*Styling for submit*/
-input[type=submit] {
-    background-color: #3066be;
-    color: #fbfff1;
-    font-size: 16px;
-    width: fit-content;
-    padding: 2px 8px;
-    box-sizing: border-box;
+/* Styling for submit */
+input[type="submit"] {
+  background-color: #3066be;
+  color: #fbfff1;
+  display: block;
+  font-size: 16px;
+  width: fit-content;
+  padding: 2px 8px;
+  box-sizing: border-box;
 }
 
-/*Styling for Paragraphs and form labels*/
-p, label {
-    font-size: 20px;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: 500;
+/* Styling for Paragraphs and form labels */
+p,
+label {
+  font-size: 20px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
 }
 
-/*Styling for Sections*/
+/* Styling for Sections */
 section {
-    border-bottom: 2px solid #3066be;
-    padding: 1%;
+  border-bottom: 2px solid #3066be;
+  padding: 1%;
 }
 
-/*Styling for footer*/
+/* Styling for footer */
 footer {
-    color: #090c9b;
-    font-size: 18px;
-    padding: 1%;
+  color: #b4c5e4;
+  font-size: 18px;
+  padding: 1%;
 }
 
-/*Styling for table headers*/
+/* Styling for table headers */
 table th {
-    background-color: #090c9b;
-    border: 3px solid #3066be;
-    font-size: 20px;
-    padding: 8px;
+  background-color: #090c9b;
+  border: 3px solid #3066be;
+  font-size: 20px;
+  padding: 8px;
 }
 
-/*Styling for table cells*/
+/* Styling for table cells */
 table td {
-    background-color: #b4c5e4;
-    border: 3px solid #3066be;
-    font-size: 18px;
-    padding: 8px;
-    color: #3c3744;
+  background-color: #b4c5e4;
+  border: 3px solid #3066be;
+  font-size: 18px;
+  padding: 8px;
+  color: #3c3744;
+}
+
+#OriginalCurrencyName {
+  display: inline-block;
+}
+
+/* Initially Hide Fields */
+#CurrencyCountryDiv,
+#ConvertedResults {
+  display: none;
+}
+
+/* Adjust the Result Values to Better Display The Number Values */
+#ConvertedResults {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
 }

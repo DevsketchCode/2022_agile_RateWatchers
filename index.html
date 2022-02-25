@@ -17,18 +17,21 @@
             <h2>Please follow the instructions below to convert.</h2>
                 <form method="get" id="convertForm" onsubmit="return false">
                     <label for="UserInputAmount">Please enter an amount to convert</label>
-                    <input type="text" id="UserInputAmount" name="UserInputAmount"><br>
-                    <label for="UserConvertCurrency">Please select the country for currency conversion:</label>
-                    <select name="UserConvertCurrency" id="UserConvertCurrency">
-                        <option value="Mexico">Mexico</option>
-                        <option value="Canada">Canada</option>
-                        <option value="China">China</option>
-                    </select><br><br>
+                    <input type="text" id="UserInputAmount" name="UserInputAmount">
+                    <p id="OriginalCurrencyName">United States Dollar (USD)</p>
+                    <div id="CurrencyCountryDiv">
+                        <label for="UserConvertCurrency">Please select the country for currency conversion:</label>
+                        <select name="UserConvertCurrency" id="UserConvertCurrency">
+                            <option value="Mexico">Mexican Peso (MXN)</option>
+                            <option value="Canada">Canadian Dollar (CAD)</option>
+                            <option value="China">Chinese Renminbi (RMB)</option>
+                        </select>
+                    </div>
                     <input type="submit" value="Convert">
                 </form>
             </section>
 
-            <section>
+            <section id="ConvertedResults">
                 <h2>Your entry and results will show below.</h2>
                 <table>
                     <tr>
@@ -41,7 +44,7 @@
                         <th>Rate</th>
                     </tr>
                     <tr>
-                        <td id="UserEntry">[insert user entry amount   ]</td>
+                        <td id="AmountEntered">[insert user entry amount   ]</td>
                         <td id="OriginCurrencyName">[insert currency name   ]</td>
                         <td id="OriginFlag">[insert flag            ]</td>
                         <td id="ConvertedAmount">[insert converted amount]</td>
@@ -52,7 +55,7 @@
                 </table>
             </section>
             <footer>
-                Converter provided by Bruce, David, David, and Mason
+                Converter Developed by Bruce Brown, David Ding, Dave Oberlander, and Mason Johnson
             </footer>
         </main>
         <script src="js/converter.js"></script>
