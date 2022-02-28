@@ -13,7 +13,7 @@ function ShowField(id) {
 // Fill Results Fields
 function FillConversionResultsTable(amountEntered, originCurrency, newCurrency, newFinalAmount, newFinalRate) {
   document.querySelector("#AmountEntered").innerHTML = amountEntered;
-  document.querySelector("#OriginCurrencyName").innerHTML = originCurrency;
+  document.querySelector("#origin-currency-name").innerHTML = originCurrency;
   document.querySelector("#NewCurrencyName").innerHTML = newCurrency;
   document.querySelector("#ConvertedAmount").innerHTML = newFinalAmount;
   document.querySelector("#Rate").innerHTML = newFinalRate;
@@ -22,7 +22,7 @@ function FillConversionResultsTable(amountEntered, originCurrency, newCurrency, 
 
 // Display Country Conversion if data entered in currency field
 document.querySelector("#UserInputAmount").addEventListener("keypress", (event) => {
-  currencyCountryDiv = document.querySelector("#CurrencyCountryDiv");
+  currencyCountryDiv = document.querySelector("#currency-country-div");
   if(currencyCountryDiv.style.display === "none" || 
       currencyCountryDiv.style.display === "") {
     // Display the currency Country div
@@ -36,7 +36,7 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
 
   // Get Values Form User Input
   var amountEntered = document.querySelector("#UserInputAmount").value;
-  var originCurrencyName = document.querySelector("#OriginalCurrencyName").innerHTML;
+  var originCurrencyName = document.querySelector("#original-currency-name").innerHTML;
   var countrySelected = document.querySelector("#UserConvertCurrency").value;
   
   // Get Selected Convert To Currency Text
@@ -86,7 +86,7 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   FillConversionResultsTable(amountEntered, originCurrencyName, newCurrencyName, newFinalAmount, newFinalRate);
 
   // Display Converted Results Div on Convert Button Click
-  resultsDiv = document.querySelector("#ConvertedResults");
+  resultsDiv = document.querySelector("#converted-results");
   ShowField(resultsDiv);
 });
 

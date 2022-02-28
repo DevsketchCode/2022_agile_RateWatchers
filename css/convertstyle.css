@@ -1,6 +1,5 @@
-/* 
+/*
 CSS for website
-
 Hex colors selected
 1--black-coffee: #3c3744;
 2--duke-blue: #090c9b;
@@ -90,10 +89,9 @@ footer {
 
 /* Administration Link in Footer */
 footer a {
-  color: #ffffff;
+  color: #fff;
   font-size: 0.8em;
 }
-
 
 /* Styling for table headers */
 table th {
@@ -113,18 +111,18 @@ table td {
 }
 
 /* Original Currency Country and Type */
-#OriginalCurrencyName {
+#original-currency-name {
   display: inline-block;
 }
 
 /* Initially Hide Fields */
-#CurrencyCountryDiv,
-#ConvertedResults {
+#currency-country-div,
+#converted-results {
   display: none;
 }
 
 /* Adjust the Result Values to Better Display The Number Values */
-#ConvertedResults {
+#converted-results {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
 }
