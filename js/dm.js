@@ -4,7 +4,34 @@ Script is designed to get the data from the submission form, display flags,
 display the data in result fields, and any other DOM manipulation.
 */
 
+// Adds the fields to the input when the window is fully loaded
+window.onload = function () {
+  // Sets up the variables for the input fields
+  var originSelection = document.querySelector("#UserInputCurrency");
+  var newSelection = document.querySelector("#UserConvertCurrency");
+
+  // Gets the drop down field data
+  AddOption(originSelection);
+  AddOption(newSelection);
+};
+
 /* -- DOM FUNCTIONS -- */
+
+// Sets the input field values
+function AddOption(selection) {
+  // Sets up the arrays and variables for the input fields
+  const country = ["Mexico", "Canada", "China"];
+  const countryCurrency = ["Mexican Peso (MXN)", "Canadian Dollar (CAD)", "Chinese Renminbi (RMB)"];
+
+  // Sets the options for the drop down fields 
+  for(var i = 0; i < country.length; i++) {
+    var option = document.createElement("option");
+    option.value = country[i];
+    option.text = countryCurrency[i];
+    selection.add(option, i);
+}
+}
+
 // Show field function
 function ShowField(id) {
   id.style.display = "block";
@@ -85,8 +112,10 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   // Populate the Results Fields
   FillConversionResultsTable(amountEntered, originCurrencyName, newCurrencyName, newFinalAmount, newFinalRate);
 
-  // Display Converted Results Div on Convert Button Click
-  resultsDiv = document.querySelector("#converted-results");
-  ShowField(resultsDiv);
+  // Display Converted Results Div on Convert Button Click if input data is correct
+  if(userInput === 0 || isNaN(userInput)){
+    resultsDiv = document.querySelector("#converted-results");
+    ShowField(resultsDiv);
+  }
 });
 
