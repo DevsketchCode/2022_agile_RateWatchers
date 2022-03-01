@@ -13,8 +13,8 @@ function AddOption(selection) {
   "Jamaica", "Madagascar"];
 
   const countryCurrency = ["United States Dollar (USD)", "Mexican Peso (MXN)", "Canadian Dollar (CAD)", "Chinese Renminbi (RMB)", "Australian dollar (AUD)",
-   "Barbadian Dollar (BBD)", "Bolivian Boliviano (BOB)", "Danish Krone (DKK)", "Egyptian Pound (EGP)", "United States Dollar (USD)", "Gambian Dalasi (GMD)", "Georgian Lari (GEL)", 
-   "East Caribbean Dollar (XCD)", "	Jamaican Dollar (JMD)", "Malagasy Ariary (MGA)"];
+   "Barbadian Dollar (BBD)", "Bolivian Boliviano (BOB)", "Danish Krone (DKK)", "Egyptian Pound (EGP)", "United States Dollar (USD)", "Gambian Dalasi (GMD)", 
+   "Georgian Lari (GEL)", "East Caribbean Dollar (XCD)", "	Jamaican Dollar (JMD)", "Malagasy Ariary (MGA)"];
 
   // Sets the options for the drop down fields 
   for(var i = 0; i < country.length; i++) {
@@ -64,12 +64,12 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
 
   // Get Values Form User Input
   var amountEntered = document.querySelector("#UserInputAmount").value;
-  var originCurrencyName = document.querySelector("#UserInputCurrency").value;
-  var countrySelected = document.querySelector("#UserConvertCurrency").value;
+  var countrySelected = document.querySelector("#UserConvertCurrency");
+  var originSelected = document.querySelector("#UserInputCurrency");
   
-  // Get Selected Convert To Currency Text
-  var selectedToCurrency = document.querySelector("#UserConvertCurrency");
-  var newCurrencyName = selectedToCurrency.options[selectedToCurrency.selectedIndex].text;
+  // Get Selected Convert To Currency Texts
+  var originCurrencyName = originSelected.options[originSelected.selectedIndex].text;
+  var newCurrencyName = countrySelected.options[countrySelected.selectedIndex].text;
   
   // Get converted values from other file
   var newFinalAmount = newAmount;
@@ -79,7 +79,7 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   var newCountryFlag;
 
     // Sets the flag for the original country currency selected
-  switch(originCurrencyName) {
+  switch(originSelected.value) {
     
     case "USA":
       originCountryFlag = "usa";
@@ -143,7 +143,7 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   }
 
   // Sets the flag for the new country currency selected
-  switch(countrySelected) {
+  switch(countrySelected.value) {
     
     case "USA":
       newCountryFlag = "usa";
