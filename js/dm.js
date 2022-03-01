@@ -78,7 +78,7 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   var originCountryFlag;
   var newCountryFlag;
 
-    // Sets the flag for the original country currency selected
+    // Sets the flag for the original country currency selected by the user
   switch(originSelected.value) {
     
     case "USA":
@@ -142,7 +142,7 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
     break;
   }
 
-  // Sets the flag for the new country currency selected
+  // Sets the flag for the new country currency selected by the user
   switch(countrySelected.value) {
     
     case "USA":
