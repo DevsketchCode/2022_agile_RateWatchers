@@ -13,8 +13,8 @@ function AddOption(selection) {
   "Jamaica", "Madagascar"];
 
   const countryCurrency = ["United States Dollar (USD)", "Mexican Peso (MXN)", "Canadian Dollar (CAD)", "Chinese Renminbi (RMB)", "Australian dollar (AUD)",
-   "Barbadian Dollar (BBD)", "Bolivian Boliviano (BOB)", "Danish Krone (DKK)", "Egyptian Pound (EGP)", "United States Dollar (USD)", "Gambian Dalasi (GMD)", 
-   "Georgian Lari (GEL)", "East Caribbean Dollar (XCD)", "	Jamaican Dollar (JMD)", "Malagasy Ariary (MGA)"];
+   "Barbadian Dollar (BBD)", "Bolivian Boliviano (BOB)", "Danish Krone (DKK)", "Egyptian Pound (EGP)", "Ecuador - United States Dollar (USD)", "Gambian Dalasi (GMD)", 
+   "Georgian Lari (GEL)", "East Caribbean Dollar (XCD)", "Jamaican Dollar (JMD)", "Malagasy Ariary (MGA)"];
 
   // Sets the options for the drop down fields 
   for(var i = 0; i < country.length; i++) {
@@ -28,6 +28,77 @@ function AddOption(selection) {
 // Show field function
 function ShowField(id) {
   id.style.display = "block";
+}
+
+// Sets the flag for the original and new currency countries
+function selectFlag(countrySelection) {
+  var countrySelected;
+
+  switch(countrySelection) {
+    
+    case "USA":
+      countrySelected = "usa";
+    break;
+    
+    case "Mexico":
+      countrySelected = "mexico";
+    break;
+    
+    case "Canada":
+      countrySelected = "canada";
+    break;
+    
+    case "China":
+      countrySelected = "china";
+    break;
+
+    case "Australia":
+      countrySelected = "australia";
+    break;
+
+    case "Barbados":
+      countrySelected = "barbados";
+    break;
+
+    case "Bolivia":
+      countrySelected = "bolivia";
+    break;
+
+    case "Denmark":
+      countrySelected = "denmark";
+    break;
+
+    case "Egypt":
+      countrySelected = "egypt";
+    break;
+
+    case "Ecuador":
+      countrySelected = "ecuador";
+    break;
+
+    case "Gambia":
+      countrySelected = "gambia";
+    break;
+
+    case "Georgia":
+      countrySelected = "georgia";
+    break;
+
+    case "Grenada":
+      countrySelected = "grenada";
+    break;
+
+    case "Jamaica":
+      countrySelected = "jamaica";
+    break;
+
+    case "Madagascar":
+      countrySelected = "madagascar";
+    break;
+  }
+
+  // Returns the selection
+  return countrySelected;
 }
 
 // Fill Results Fields
@@ -78,133 +149,11 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   var originCountryFlag;
   var newCountryFlag;
 
-    // Sets the flag for the original country currency selected by the user
-  switch(originSelected.value) {
-    
-    case "USA":
-      originCountryFlag = "usa";
-    break;
-    
-    case "Mexico":
-      originCountryFlag = "mexico";
-    break;
-    
-    case "Canada":
-      originCountryFlag = "canada";
-    break;
-    
-    case "China":
-      originCountryFlag = "china";
-    break;
-
-    case "Australia":
-      originCountryFlag = "australia";
-    break;
-  
-    case "Barbados":
-      originCountryFlag = "barbados";
-    break;
-  
-    case "Bolivia":
-      originCountryFlag = "bolivia";
-    break;
-  
-    case "Denmark":
-      originCountryFlag = "denmark";
-    break;
-  
-    case "Egypt":
-      originCountryFlag = "egypt";
-    break;
-  
-    case "Ecuador":
-      originCountryFlag = "ecuador";
-    break;
-  
-    case "Gambia":
-      originCountryFlag = "gambia";
-    break;
-  
-    case "Georgia":
-      originCountryFlag = "georgia";
-    break;
-  
-    case "Grenada":
-      originCountryFlag = "grenada";
-    break;
-  
-    case "Jamaica":
-      originCountryFlag = "jamaica";
-    break;
-  
-    case "Madagascar":
-      originCountryFlag = "madagascar";
-    break;
-  }
+  // Sets the flag for the original country currency selected by the user
+  originCountryFlag = selectFlag(originSelected.value);
 
   // Sets the flag for the new country currency selected by the user
-  switch(countrySelected.value) {
-    
-    case "USA":
-      newCountryFlag = "usa";
-    break;
-    
-    case "Mexico":
-      newCountryFlag = "mexico";
-    break;
-    
-    case "Canada":
-      newCountryFlag = "canada";
-    break;
-    
-    case "China":
-      newCountryFlag = "china";
-    break;
-
-    case "Australia":
-      newCountryFlag = "australia";
-    break;
-
-    case "Barbados":
-      newCountryFlag = "barbados";
-    break;
-
-    case "Bolivia":
-      newCountryFlag = "bolivia";
-    break;
-
-    case "Denmark":
-      newCountryFlag = "denmark";
-    break;
-
-    case "Egypt":
-      newCountryFlag = "egypt";
-    break;
-
-    case "Ecuador":
-      newCountryFlag = "ecuador";
-    break;
-
-    case "Gambia":
-      newCountryFlag = "gambia";
-    break;
-
-    case "Georgia":
-      newCountryFlag = "georgia";
-    break;
-
-    case "Grenada":
-      newCountryFlag = "grenada";
-    break;
-
-    case "Jamaica":
-      newCountryFlag = "jamaica";
-    break;
-
-    case "Madagascar":
-      newCountryFlag = "madagascar";
-    break;
-  }
+  newCountryFlag = selectFlag(countrySelected.value);
 
   // Sets the flag labels in the results to blank
   var originFlagLabel = document.querySelector("#OriginFlag");
