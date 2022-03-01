@@ -22,7 +22,7 @@ function AddOption(selection) {
     option.value = country[i];
     option.text = countryCurrency[i];
     selection.add(option, i);
-}
+  }
 }
 
 // Show field function
