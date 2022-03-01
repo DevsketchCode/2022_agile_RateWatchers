@@ -9,11 +9,11 @@ display the data in result fields, and any other DOM manipulation.
 // Sets the input field values
 function AddOption(selection) {
   // Sets up the arrays and variables for the input fields
-  const country = ["USA", "Mexico", "Canada", "China", "Australia", "Bangladesh", "Bolivia", "Denmark", "Egypt", "Ecuador", "Gambia", "Georgia", "Grenada", 
+  const country = ["USA", "Mexico", "Canada", "China", "Australia", "Barbados", "Bolivia", "Denmark", "Egypt", "Ecuador", "Gambia", "Georgia", "Grenada", 
   "Jamaica", "Madagascar"];
 
   const countryCurrency = ["United States Dollar (USD)", "Mexican Peso (MXN)", "Canadian Dollar (CAD)", "Chinese Renminbi (RMB)", "Australian dollar (AUD)",
-   "Bangladeshi Taka (BDT)", "Bolivian Boliviano (BOB)", "Danish Krone (DKK)", "Egyptian Pound (EGP)", "United States Dollar (USD)", "Gambian Dalasi (GMD)", "Georgian Lari (GEL)", 
+   "Barbadian Dollar (BBD)", "Bolivian Boliviano (BOB)", "Danish Krone (DKK)", "Egyptian Pound (EGP)", "United States Dollar (USD)", "Gambian Dalasi (GMD)", "Georgian Lari (GEL)", 
    "East Caribbean Dollar (XCD)", "	Jamaican Dollar (JMD)", "Malagasy Ariary (MGA)"];
 
   // Sets the options for the drop down fields 
@@ -101,8 +101,8 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
       originCountryFlag = "australia";
     break;
   
-    case "Bangladesh":
-      originCountryFlag = "bangladesh";
+    case "Barbados":
+      originCountryFlag = "barbados";
     break;
   
     case "Bolivia":
@@ -165,8 +165,8 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
       newCountryFlag = "australia";
     break;
 
-    case "Bangladesh":
-      newCountryFlag = "bangladesh";
+    case "Barbados":
+      newCountryFlag = "barbados";
     break;
 
     case "Bolivia":
