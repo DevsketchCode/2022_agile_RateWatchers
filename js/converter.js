@@ -29,6 +29,11 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
     // Switch case to see what country was picked and create conversion
     switch(countryRateSelected) {
       
+      case "USA":
+        newAmount = userInput * 1.00;
+        currencyRate = "1 USD = 1 USD";
+      break;
+
       case "Mexico":
         newAmount = userInput * 20.40;
         currencyRate = "1 USD = 20.40 Mexican Pesos";

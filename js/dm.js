@@ -4,24 +4,17 @@ Script is designed to get the data from the submission form, display flags,
 display the data in result fields, and any other DOM manipulation.
 */
 
-// Adds the fields to the input when the window is fully loaded
-window.onload = function () {
-  // Sets up the variables for the input fields
-  var originSelection = document.querySelector("#UserInputCurrency");
-  var newSelection = document.querySelector("#UserConvertCurrency");
-
-  // Gets the drop down field data
-  AddOption(originSelection);
-  AddOption(newSelection);
-};
-
 /* -- DOM FUNCTIONS -- */
 
 // Sets the input field values
 function AddOption(selection) {
   // Sets up the arrays and variables for the input fields
-  const country = ["Mexico", "Canada", "China"];
-  const countryCurrency = ["Mexican Peso (MXN)", "Canadian Dollar (CAD)", "Chinese Renminbi (RMB)"];
+  const country = ["USA", "Mexico", "Canada", "China", "Australia", "Bangladesh", "Bolivia", "Denmark", "Egypt", "Ecuador", "Gambia", "Georgia", "Grenada", 
+  "Jamaica", "Madagascar"];
+
+  const countryCurrency = ["United States Dollar (USD)", "Mexican Peso (MXN)", "Canadian Dollar (CAD)", "Chinese Renminbi (RMB)", "Australian dollar (AUD)",
+   "Bangladeshi Taka (BDT)", "Bolivian Boliviano (BOB)", "Danish Krone (DKK)", "Egyptian Pound (EGP)", "United States Dollar (USD)", "Gambian Dalasi (GMD)", "Georgian Lari (GEL)", 
+   "East Caribbean Dollar (XCD)", "	Jamaican Dollar (JMD)", "Malagasy Ariary (MGA)"];
 
   // Sets the options for the drop down fields 
   for(var i = 0; i < country.length; i++) {
@@ -47,6 +40,14 @@ function FillConversionResultsTable(amountEntered, originCurrency, newCurrency, 
   
 }
 
+// Adds the fields to the input when the window is fully loaded
+window.onload = function () {
+
+  // Gets the drop down field data
+  AddOption(document.querySelector("#UserInputCurrency"));
+  AddOption(document.querySelector("#UserConvertCurrency"));
+};
+
 // Display Country Conversion if data entered in currency field
 document.querySelector("#UserInputAmount").addEventListener("keypress", (event) => {
   currencyCountryDiv = document.querySelector("#currency-country-div");
@@ -63,7 +64,7 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
 
   // Get Values Form User Input
   var amountEntered = document.querySelector("#UserInputAmount").value;
-  var originCurrencyName = document.querySelector("#original-currency-name").innerHTML;
+  var originCurrencyName = document.querySelector("#UserInputCurrency").value;
   var countrySelected = document.querySelector("#UserConvertCurrency").value;
   
   // Get Selected Convert To Currency Text
@@ -74,21 +75,134 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   var newFinalAmount = newAmount;
   var newFinalRate = currencyRate;
 
-  var originCountryFlag = "usa";
+  var originCountryFlag;
   var newCountryFlag;
-    // Sets the flag for the current or country selected
-  switch(countrySelected) {
+
+    // Sets the flag for the original country currency selected
+  switch(originCurrencyName) {
+    
+    case "USA":
+      originCountryFlag = "usa";
+    break;
     
     case "Mexico":
-    newCountryFlag = "mexico";
+      originCountryFlag = "mexico";
     break;
     
     case "Canada":
-    newCountryFlag = "canada";
+      originCountryFlag = "canada";
     break;
     
     case "China":
-    newCountryFlag = "china";
+      originCountryFlag = "china";
+    break;
+
+    case "Australia":
+      originCountryFlag = "australia";
+    break;
+  
+    case "Bangladesh":
+      originCountryFlag = "bangladesh";
+    break;
+  
+    case "Bolivia":
+      originCountryFlag = "bolivia";
+    break;
+  
+    case "Denmark":
+      originCountryFlag = "denmark";
+    break;
+  
+    case "Egypt":
+      originCountryFlag = "egypt";
+    break;
+  
+    case "Ecuador":
+      originCountryFlag = "ecuador";
+    break;
+  
+    case "Gambia":
+      originCountryFlag = "gambia";
+    break;
+  
+    case "Georgia":
+      originCountryFlag = "georgia";
+    break;
+  
+    case "Grenada":
+      originCountryFlag = "grenada";
+    break;
+  
+    case "Jamaica":
+      originCountryFlag = "jamaica";
+    break;
+  
+    case "Madagascar":
+      originCountryFlag = "madagascar";
+    break;
+  }
+
+  // Sets the flag for the new country currency selected
+  switch(countrySelected) {
+    
+    case "USA":
+      newCountryFlag = "usa";
+    break;
+    
+    case "Mexico":
+      newCountryFlag = "mexico";
+    break;
+    
+    case "Canada":
+      newCountryFlag = "canada";
+    break;
+    
+    case "China":
+      newCountryFlag = "china";
+    break;
+
+    case "Australia":
+      newCountryFlag = "australia";
+    break;
+
+    case "Bangladesh":
+      newCountryFlag = "bangladesh";
+    break;
+
+    case "Bolivia":
+      newCountryFlag = "bolivia";
+    break;
+
+    case "Denmark":
+      newCountryFlag = "denmark";
+    break;
+
+    case "Egypt":
+      newCountryFlag = "egypt";
+    break;
+
+    case "Ecuador":
+      newCountryFlag = "ecuador";
+    break;
+
+    case "Gambia":
+      newCountryFlag = "gambia";
+    break;
+
+    case "Georgia":
+      newCountryFlag = "georgia";
+    break;
+
+    case "Grenada":
+      newCountryFlag = "grenada";
+    break;
+
+    case "Jamaica":
+      newCountryFlag = "jamaica";
+    break;
+
+    case "Madagascar":
+      newCountryFlag = "madagascar";
     break;
   }
 
@@ -113,7 +227,7 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   FillConversionResultsTable(amountEntered, originCurrencyName, newCurrencyName, newFinalAmount, newFinalRate);
 
   // Display Converted Results Div on Convert Button Click if input data is correct
-  if(userInput === 0 || isNaN(userInput)){
+  if(amountEntered !== "" && !isNaN(amountEntered)){
     resultsDiv = document.querySelector("#converted-results");
     ShowField(resultsDiv);
   }
