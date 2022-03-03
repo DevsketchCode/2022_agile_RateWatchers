@@ -16,15 +16,23 @@
             <section>
             <h2>Please follow the instructions below to convert.</h2>
                 <form method="get" id="convertForm" onsubmit="return false">
-                    <label for="UserInputCurrency">Please select your country currency:</label>
+                    <div id="input-currency-div" class="form-line">
+                        <label for="UserInputCurrency">Please select your country currency: </label>
                         <select name="UserInputCurrency" id="UserInputCurrency">
-                        </select><br><br>
-                    <label for="UserInputAmount">Please enter an amount to convert</label>
-                    <input type="text" id="UserInputAmount" name="UserInputAmount"><br><br>
-                        <label for="UserConvertCurrency">Please select the country for currency conversion:</label>
+                        </select>
+                    </div>
+                    <div id="input-amount-div" class="form-line">
+                        <label for="UserInputAmount">Please enter an amount to convert: </label>
+                        <input type="text" id="UserInputAmount" name="UserInputAmount">
+                    </div>
+                    <div id="input-convert-to-country-div" class="form-line">
+                        <label for="UserConvertCurrency">Please select the country for currency conversion: </label>
                         <select name="UserConvertCurrency" id="UserConvertCurrency">
-                        </select><br><br>
-                    <input type="submit" value="Convert">
+                        </select>
+                    </div>
+                    <div id="btn-submit">
+                        <input type="submit" value="Convert">
+                    </div>
                 </form>
             </section>
 
@@ -51,6 +59,15 @@
                     </tr>
                 </table>
             </section>
+            
+                <!-- Country List -->
+                <div id="modal-container" class="modal-box">
+                    <div id="modal-content-box">
+                        <span class="modal-close">X</span>
+                        <p id="modal-content"></p>
+                    </div>
+                </div>
+                <button id="btn-country-list" onclick="displayModal('CountryList');">View Country List</button>
             <footer>
                 Converter Developed by Bruce Brown, David Ding, Dave Oberlander, and Mason Johnson
                 <p><a href="mailto:doberlander@student.cvtc.edu">Contact Administrator</a></p>
@@ -58,5 +75,6 @@
         </main>
         <script src="js/dm.js"></script>
         <script src="js/converter.js"></script>
+        <script src="js/modal.js"></script>
     </body>
 </html>
