@@ -6,11 +6,16 @@ display the data in result fields, and any other DOM manipulation.
 
 /* -- DOM FUNCTIONS -- */
 
+// added countries to it's own, as it is needed in other scripts.
+function getCountries() {
+  return ["USA", "Mexico", "Canada", "China", "Australia", "Barbados", "Bolivia", "Denmark", "Egypt", "Ecuador", "Gambia", "Georgia", "Grenada", 
+  "Jamaica", "Madagascar"];
+}
+
 // Sets the input field values
 function AddOption(selection) {
   // Sets up the arrays and variables for the input fields
-  const country = ["USA", "Mexico", "Canada", "China", "Australia", "Barbados", "Bolivia", "Denmark", "Egypt", "Ecuador", "Gambia", "Georgia", "Grenada", 
-  "Jamaica", "Madagascar"];
+  const country = getCountries();
 
   const countryCurrency = ["United States Dollar (USD)", "Mexican Peso (MXN)", "Canadian Dollar (CAD)", "Chinese Renminbi (RMB)", "Australian dollar (AUD)",
    "Barbadian Dollar (BBD)", "Bolivian Boliviano (BOB)", "Danish Krone (DKK)", "Egyptian Pound (EGP)", "Ecuador - United States Dollar (USD)", "Gambian Dalasi (GMD)", 
@@ -121,11 +126,13 @@ window.onload = function () {
 
 // Display Country Conversion if data entered in currency field
 document.querySelector("#UserInputAmount").addEventListener("keypress", (event) => {
-  currencyCountryDiv = document.querySelector("#currency-country-div");
+  currencyCountryDiv = document.querySelector("#input-convert-to-country-div");
+  convertButton = document.querySelector("#btn-submit");
   if(currencyCountryDiv.style.display === "none" || 
       currencyCountryDiv.style.display === "") {
     // Display the currency Country div
     ShowField(currencyCountryDiv);
+    ShowField(convertButton);
   }
 });
 
