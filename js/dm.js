@@ -184,9 +184,12 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   FillConversionResultsTable(amountEntered, originCurrencyName, newCurrencyName, newFinalAmount, newFinalRate);
 
   // Display Converted Results Div on Convert Button Click if input data is correct
-  if(amountEntered !== "" && !isNaN(amountEntered)){
+  if(amountEntered !== "" && !isNaN(amountEntered) && Number(amountEntered) > 0){
     resultsDiv = document.querySelector("#converted-results");
     ShowField(resultsDiv);
+  }
+  else {
+    resultsDiv.style.display = "none";
   }
   
   

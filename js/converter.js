@@ -30,11 +30,12 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
   // Gets the text from the input field 
   var userInput = Number(document.querySelector("#UserInputAmount").value);
   
-  // Validates only numbers are submitted and refreshes the input field
-  // when invalid data is submitted.
-  if(userInput === 0 || isNaN(userInput)){
+  // Validates only numbers are submitted. Provides an alert popup. Refreshes the 
+  //input field and page when invalid data is submitted.
+  if(userInput <= 0 || isNaN(userInput)){
     alert("You did not input a valid currency value! Please try again.");
     document.querySelector("#UserInputAmount").value = "";
+    location.reload();
   } else {
   
     // Variable for what country is selected
