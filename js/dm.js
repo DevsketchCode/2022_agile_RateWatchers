@@ -18,14 +18,14 @@ function AddOption(selection) {
   const country = getCountries();
 
   const countryCurrency = ["United States Dollar (USD)", "Mexican Peso (MXN)", "Canadian Dollar (CAD)", "Chinese Renminbi (RMB)", "Australian dollar (AUD)",
-   "Barbadian Dollar (BBD)", "Bolivian Boliviano (BOB)", "Danish Krone (DKK)", "Egyptian Pound (EGP)", "Ecuador - United States Dollar (USD)", "Gambian Dalasi (GMD)", 
+   "Barbadian Dollar (BBD)", "Bolivian Boliviano (BOB)", "Danish Krone (DKK)", "Egyptian Pound (EGP)", "United States Dollar (USD)", "Gambian Dalasi (GMD)", 
    "Georgian Lari (GEL)", "East Caribbean Dollar (XCD)", "Jamaican Dollar (JMD)", "Malagasy Ariary (MGA)"];
 
   // Sets the options for the drop down fields 
   for(var i = 0; i < country.length; i++) {
     var option = document.createElement("option");
     option.value = country[i];
-    option.text = countryCurrency[i];
+    option.text = country[i] + " - " + countryCurrency[i];
     selection.add(option, i);
   }
 }
@@ -117,12 +117,13 @@ function FillConversionResultsTable(amountEntered, originCurrency, newCurrency, 
 }
 
 // Adds the fields to the input when the window is fully loaded
-window.onload = function () {
+//window.onload = function () {
+  $(function(){
 
   // Gets the drop down field data
   AddOption(document.querySelector("#UserInputCurrency"));
   AddOption(document.querySelector("#UserConvertCurrency"));
-};
+});
 
 // Display Country Conversion if data entered in currency field
 document.querySelector("#UserInputAmount").addEventListener("keypress", (event) => {

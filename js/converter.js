@@ -23,8 +23,10 @@ validate the data and convert the currencies.
   var newLead;
 
 // Event listener for the submit button contains the logic for converting amounts.
-document.querySelector("#convertForm").addEventListener("submit", function() {
+document.querySelector("#convertForm").addEventListener("submit", function(e) {
   
+  e.preventDefault();
+
   // Gets the text from the input field 
   var userInput = Number(document.querySelector("#UserInputAmount").value);
   
