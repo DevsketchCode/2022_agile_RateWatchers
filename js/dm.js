@@ -187,5 +187,27 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
     resultsDiv = document.querySelector("#converted-results");
     ShowField(resultsDiv);
   }
+  
+  
+  
+  
+  
+  // Display stats for new country on mouse over
+  var newFlagStats = document.querySelector("#NewFlag");
+  
+  newFlagStats.addEventListener('mouseenter', () =>
+    newFlagStats.innerHTML = "Population: " + newPop + "<br />Language: " + newLang + "<br />GDP: " + newGDP + "<br />Capital: " + newCap + "<br />Leader: " + newLead);
+    
+  newFlagStats.addEventListener('mouseleave', () =>
+    newFlagStats.innerHTML = "<img src=\"images/" + newCountryFlag + "Flag.png\">");
+    
+  // Display stats for origin country on mouse over
+  var originFlagStats = document.querySelector("#OriginFlag");
+  
+  originFlagStats.addEventListener('mouseenter', () =>
+    originFlagStats.innerHTML = "Population: " + originPop + "<br />Language: " + originLang + "<br />GDP: " + originGDP + "<br />Capital: " + originCap + "<br />Leader: " + originLead);
+    
+  originFlagStats.addEventListener('mouseleave', () =>
+    originFlagStats.innerHTML = "<img src=\"images/" + originCountryFlag + "Flag.png\">");
 });
 
