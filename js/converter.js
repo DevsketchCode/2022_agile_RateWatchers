@@ -38,10 +38,6 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
     location.reload();
   } else {
   
-    // Variable for what countries are selected
-    var firstCountrySelected = document.querySelector("#UserInputCurrency").value;
-    var secondCountrySelected = document.querySelector("#UserConvertCurrency").value;
-
     const baseRateMap = new Map();
     baseRateMap.set("USD",1.00);
     baseRateMap.set("MXN",20.8122);
