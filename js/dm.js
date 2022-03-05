@@ -17,7 +17,7 @@ function AddOption(selection) {
   // Sets up the arrays and variables for the input fields
   const country = getCountries();
 
-  const countryCurrency = ["United States Dollar (USD)", "Mexican Peso (MXN)", "Canadian Dollar (CAD)", "Chinese Renminbi (RMB)", "Australian dollar (AUD)",
+  const countryCurrency = ["United States Dollar (USD)", "Mexican Peso (MXN)", "Canadian Dollar (CAD)", "Chinese Yuan Renminbi (CNY)", "Australian dollar (AUD)",
    "Barbadian Dollar (BBD)", "Bolivian Boliviano (BOB)", "Danish Krone (DKK)", "Egyptian Pound (EGP)", "United States Dollar (USD)", "Gambian Dalasi (GMD)", 
    "Georgian Lari (GEL)", "East Caribbean Dollar (XCD)", "Jamaican Dollar (JMD)", "Malagasy Ariary (MGA)"];
 
@@ -149,10 +149,7 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   // Get Selected Convert To Currency Texts
   var originCurrencyName = originSelected.options[originSelected.selectedIndex].text;
   var newCurrencyName = countrySelected.options[countrySelected.selectedIndex].text;
-  
-  // Get converted values from other file
-  var newFinalAmount = newAmount;
-  var newFinalRate = currencyRate;
+
 
   var originCountryFlag;
   var newCountryFlag;
