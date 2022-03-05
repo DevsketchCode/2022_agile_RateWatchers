@@ -6,8 +6,8 @@ validate the data and convert the currencies.
 
 // Set global variables so they can be used in both fileSize
 // Variable for total after conversion and rate
-  var newAmount;
-  var currencyRate;
+  var newFinalAmount;
+  var newFinalRate;
   
 // Variables for country stats
   var originPop;
@@ -38,42 +38,42 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
     location.reload();
   } else {
   
-    // Variable for what country is selected
-    var countryRateSelected = document.querySelector("#UserConvertCurrency").value;
+    // Variable for what countries are selected
+    var firstCountrySelected = document.querySelector("#UserInputCurrency").value;
+    var secondCountrySelected = document.querySelector("#UserConvertCurrency").value;
 
-
-    // Switch case to see what country was picked and create conversion
-    switch(countryRateSelected) {
-      
-      case "USA":
-        newAmount = userInput * 1.00;
-        currencyRate = "1 USD = 1 USD";
-      break;
-
-      case "Mexico":
-        newAmount = userInput * 20.40;
-        currencyRate = "1 USD = 20.40 Mexican Pesos";
-      break;
-      
-      case "Canada":
-        newAmount = userInput * 1.27;
-        currencyRate = "1 USD = 1.27 Candian Dollar";
-      break;
-      
-      case "China":
-        newAmount = userInput * 6.32;
-        currencyRate = "1 USD = 6.32 Chinese Yuan";
-      break;
-    }
+    const baseRateMap = new Map();
+    baseRateMap.set("USD",1.00);
+    baseRateMap.set("MXN",20.8122);
+    baseRateMap.set("CAD",1.2723);
+    baseRateMap.set("CNY",6.3176);
+    baseRateMap.set("AUD",1.3597);
+    baseRateMap.set("BBD",2.00);
+    baseRateMap.set("BOB",6.7123);
+    baseRateMap.set("DKK",6.7780);
+    baseRateMap.set("EGP",15.6818);
+    baseRateMap.set("USD",1.00);
+    baseRateMap.set("GMD",53.0341);
+    baseRateMap.set("GEL",3.1914);
+    baseRateMap.set("XCD",2.70);
+    baseRateMap.set("JMD",153.523);
+    baseRateMap.set("MGA",3962.31);
     
     // Variable to grab original country flag
-    var countryOriginFlag = document.querySelector("#UserInputCurrency").value;
+    var countryOriginData = document.querySelector("#UserInputCurrency").value;
     
     // Variable to grab new country flag
-    var countryNewFlag = document.querySelector("#UserConvertCurrency").value;
-    
+    var countryNewData = document.querySelector("#UserConvertCurrency").value;
+
+    // Variable for base conversion rates
+    var originCurrencyCode = "";
+    var originSelectionBaseRate = "";
+    var firstConvertToCountry_CurrencyCode = "";
+    var firstConvertToCountry_BaseRate = 0;
+
     // Switch case to grab what was selected and asign stats
-    switch(countryOriginFlag) {
+    // This will also set the base conversion rate for the selected country. Base Rate = the countries rate to 1 USD
+    switch(countryOriginData) {
       
       case "USA":
         originPop = "329.5 Billion";
@@ -81,6 +81,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originGDP = "20.94 Trillion";
         originCap = "Washingtion, D.C.";
         originLead = "Joe Biden";
+        originCurrencyCode = "USD";
+        originSelectionBaseRate = baseRateMap.get(originCurrencyCode);
       break;
 
       case "Mexico":
@@ -89,7 +91,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originGDP = "1.076 Trillion";
         originCap = "Mexico City";
         originLead = "Andres Manuel Lopez Obrador";
-        
+        originCurrencyCode = "MXN";
+        originSelectionBaseRate = baseRateMap.get(originCurrencyCode);
       break;
       
       case "Canada":
@@ -98,6 +101,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originGDP = "1.643";
         originCap = "Ottawa";
         originLead = "Justin Trudeau";
+        originCurrencyCode = "CAD";
+        originSelectionBaseRate = baseRateMap.get(originCurrencyCode);        
       break;
       
       case "China":
@@ -106,8 +111,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originGDP = "14.72 Trillion";
         originCap = "Beijing";
         originLead = "Xi Jinping";
-        
-        
+        originCurrencyCode = "CNY";
+        originSelectionBaseRate = baseRateMap.get(originCurrencyCode);       
       break;
       
       case "Australia":
@@ -116,6 +121,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originGDP = "1.331 Trillion";
         originCap = "Canberra";
         originLead = "Scott Morrison";
+        originCurrencyCode = "AUD";
+        originSelectionBaseRate = baseRateMap.get(originCurrencyCode);
       break;
       
       case "Barbados":
@@ -124,6 +131,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originGDP = "4.366 Billion";
         originCap = "Bridgetown";
         originLead = "Mia Mottley";
+        originCurrencyCode = "BBD";
+        originSelectionBaseRate = baseRateMap.get(originCurrencyCode);
       break;
       
       case "Bolivia":
@@ -132,6 +141,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originGDP = "36.69 Billion";
         originCap = "Sucre";
         originLead = "Luis Acre";
+        originCurrencyCode = "BOB";
+        originSelectionBaseRate = baseRateMap.get(originCurrencyCode);
       break;
       
       case "Denmark":
@@ -140,6 +151,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originGDP = "355.2 Billion";
         originCap = "Copenhagen";
         originLead = "Mette Frederiksen";
+        originCurrencyCode = "DKK";
+        originSelectionBaseRate = baseRateMap.get(originCurrencyCode);
       break;
       
       case "Egypt":
@@ -148,6 +161,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originGDP = "363.1 Billion";
         originCap = "Cairo";
         originLead = "Abdel Fattah Al-Sisi";
+        originCurrencyCode = "EGP";
+        originSelectionBaseRate = baseRateMap.get(originCurrencyCode);
       break;
       
       case "Ecuador":
@@ -156,6 +171,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originGDP = "98.81 Billion";
         originCap = "Quito";
         originLead = "Guillermo Lasso";
+        originCurrencyCode = "USD";
+        originSelectionBaseRate = baseRateMap.get(originCurrencyCode);
       break;
       
       case "Gambia":
@@ -164,6 +181,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originGDP = "1.902 Billion";
         originCap = "Banjul";
         originLead = "Adama Barrow";
+        originCurrencyCode = "GMD";
+        originSelectionBaseRate = baseRateMap.get(originCurrencyCode);
       break;
       
       case "Georgia":
@@ -172,6 +191,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originGDP = "15.89 Billion";
         originCap = "Tbilisi";
         originLead = "Salome Zourabichvili";
+        originCurrencyCode = "GEL";
+        originSelectionBaseRate = baseRateMap.get(originCurrencyCode);
       break;
       
       case "Grenada":
@@ -180,6 +201,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originGDP = "1.089 Billion";
         originCap = "Saint George's";
         originLead = "Keith Mitchell";
+        originCurrencyCode = "XCD";
+        originSelectionBaseRate = baseRateMap.get(originCurrencyCode);
       break;
       
       case "Jamaica":
@@ -188,6 +211,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originGDP = "13.81 Billion";
         originCap = "Kingston";
         originLead = "Andrew Holness";
+        originCurrencyCode = "JMD";
+        originSelectionBaseRate = baseRateMap.get(originCurrencyCode);
       break;
       
       case "Madagascar":
@@ -196,11 +221,13 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originGDP = "13.72 Billion";
         originCap = "Antananarivo";
         originLead = "Andry Rajoelina";
+        originCurrencyCode = "MGA";
+        originSelectionBaseRate = baseRateMap.get(originCurrencyCode);
       break;
     }
-    
     // Switch case to grab new flag and assign stats
-    switch(countryNewFlag) {
+    // This will also set the base conversion rate for the selected country. Base Rate = the countries rate to 1 USD    
+    switch(countryNewData) {
       
       case "USA":
         newPop = "329.5 Billion";
@@ -208,6 +235,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "20.94 Trillion";
         newCap = "Washingtion, D.C.";
         newLead = "Joe Biden";
+        firstConvertToCountry_CurrencyCode = "USD";
+        firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);
       break;
 
       case "Mexico":
@@ -216,7 +245,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "1.076 Trillion";
         newCap = "Mexico City";
         newLead = "Andres Manuel Lopez Obrador";
-        
+        firstConvertToCountry_CurrencyCode = "MXN";
+        firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);
       break;
       
       case "Canada":
@@ -225,6 +255,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "1.643";
         newCap = "Ottawa";
         newLead = "Justin Trudeau";
+        firstConvertToCountry_CurrencyCode = "CAD";
+        firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);        
       break;
       
       case "China":
@@ -233,8 +265,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "14.72 Trillion";
         newCap = "Beijing";
         newLead = "Xi Jinping";
-        
-        
+        firstConvertToCountry_CurrencyCode = "CNY";
+        firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);
       break;
       
       case "Australia":
@@ -243,6 +275,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "1.331 Trillion";
         newCap = "Canberra";
         newLead = "Scott Morrison";
+        firstConvertToCountry_CurrencyCode = "AUD";
+        firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);
       break;
       
       case "Barbados":
@@ -251,6 +285,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originGDP = "4.366 Billion";
         originCap = "Bridgetown";
         originLead = "Mia Mottley";
+        firstConvertToCountry_CurrencyCode = "BBD";
+        firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);
       break;
       
       case "Bolivia":
@@ -259,6 +295,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "36.69 Billion";
         newCap = "Sucre";
         newLead = "Luis Acre";
+        firstConvertToCountry_CurrencyCode = "BOB";
+        firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);       
       break;
       
       case "Denmark":
@@ -267,6 +305,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "355.2 Billion";
         newCap = "Copenhagen";
         newLead = "Mette Frederiksen";
+        firstConvertToCountry_CurrencyCode = "DKK";
+        firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);        
       break;
       
       case "Egypt":
@@ -275,6 +315,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "363.1 Billion";
         newCap = "Cairo";
         newLead = "Abdel Fattah Al-Sisi";
+        firstConvertToCountry_CurrencyCode = "EGP";
+        firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);        
       break;
       
       case "Ecuador":
@@ -283,6 +325,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "98.81 Billion";
         newnCap = "Quito";
         newLead = "Guillermo Lasso";
+        firstConvertToCountry_CurrencyCode = "USD";
+        firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);        
       break;
       
       case "Gambia":
@@ -291,6 +335,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originGDP = "1.902 Billion";
         originCap = "Banjul";
         originLead = "Adama Barrow";
+        firstConvertToCountry_CurrencyCode = "GMD";
+        firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);        
       break;
       
       case "Georgia":
@@ -299,6 +345,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "15.89 Billion";
         newCap = "Tbilisi";
         newLead = "Salome Zourabichvili";
+        firstConvertToCountry_CurrencyCode = "GEL";
+        firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);        
       break;
       
       case "Grenada":
@@ -307,6 +355,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "1.089 Billion";
         newCap = "Saint George's";
         newLead = "Keith Mitchell";
+        firstConvertToCountry_CurrencyCode = "XCD";
+        firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);        
       break;
       
       case "Jamaica":
@@ -315,6 +365,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "13.81 Billion";
         newCap = "Kingston";
         newLead = "Andrew Holness";
+        firstConvertToCountry_CurrencyCode = "JMD";
+        firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);        
       break;
       
       case "Madagascar":
@@ -323,10 +375,21 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "13.72 Billion";
         newCap = "Antananarivo";
         newLead = "Andry Rajoelina";
+        firstConvertToCountry_CurrencyCode = "MGA";
+        firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);        
       break;
     }
+
+    // Calculate the currency conversion
+
+
+    // Calculation
+    // Base Rates are all the amount that equals 1 USD
+    // ((ConvertToBaseRate / OriginBaseRate) * inputAmount)
     
+    newFinalRate = (firstConvertToCountry_BaseRate / originSelectionBaseRate);
+
+    newFinalAmount = newFinalRate * userInput;
 
   }
-
 });
