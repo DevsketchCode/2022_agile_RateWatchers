@@ -383,9 +383,9 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
     // Base Rates are all the amount that equals 1 USD
     // ((ConvertToBaseRate / OriginBaseRate) * inputAmount)
     
-    newFinalRate = (firstConvertToCountry_BaseRate / originSelectionBaseRate);
+    newFinalRate = Math.round((firstConvertToCountry_BaseRate / originSelectionBaseRate)*100)/100;
 
-    newFinalAmount = newFinalRate * userInput;
+    newFinalAmount = Math.round((newFinalRate * userInput)*100)/100;
 
   }
 });
