@@ -64,7 +64,8 @@ input[type="submit"] {
   box-sizing: border-box;
 }
 
-/* Styling for buttons */
+
+/* Styling for form buttons */
 input[type="button"] {
   background-color: #3066be;
   color: #fbfff1;
@@ -74,6 +75,18 @@ input[type="button"] {
   padding: 2px 8px;
   box-sizing: border-box;
 }
+
+/* Styling for generic buttons */
+button {
+  background-color: #b4c5e4;
+  color: #3c3744;
+  display: block;
+  font-size: 14px;
+  width: fit-content;
+  padding: 2px 8px;
+  box-sizing: border-box;
+}
+
 
 /* Styling for Paragraphs and form labels */
 p,
