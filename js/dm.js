@@ -146,6 +146,9 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   var countrySelected = document.querySelector("#UserConvertCurrency");
   var originSelected = document.querySelector("#UserInputCurrency");
   
+  // Round amount entered to "###.##"
+  amountEntered = Math.round(amountEntered * 100)/100;
+  
   // Get Selected Convert To Currency Texts
   var originCurrencyName = originSelected.options[originSelected.selectedIndex].text;
   var newCurrencyName = countrySelected.options[countrySelected.selectedIndex].text;
