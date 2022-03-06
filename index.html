@@ -4,13 +4,13 @@
         <meta charset="utf-8">
         <title>Converter</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="css/convertstyle.css">
+        <link rel="stylesheet" href="css/convertstyle.css" id = "stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <main>
             <section>
-                <h1>Rate watcher</h1>
+                <h1>Rate Watcher</h1>
                 <h3>Currency Converter</h3>
             </section>
 
@@ -71,7 +71,8 @@
                         <p id="modal-content"></p>
                     </div>
                 </div>
-                <button id="btn-country-list" onclick="displayModal('CountryList');">View Country List</button>
+                <button id="btn-country-list" onclick="displayModal('CountryList');">View Country List</button><br>
+                <button id="btn-dark-light-mode">Light Mode</button><br>
             <footer>
                 Converter Developed by Bruce Brown, David Ding, Dave Oberlander, and Mason Johnson
                 <p><a href="mailto:doberlander@student.cvtc.edu">Contact Administrator</a></p>
@@ -81,5 +82,6 @@
         <script src="js/dm.js"></script>
         <script src="js/modal.js"></script>
         <script src="js/reset.js"></script>
+        <script src="js/dark-light.js"></script>
     </body>
 </html>

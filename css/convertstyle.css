@@ -50,7 +50,8 @@ h3 {
 
 /* Styling for form text */
 input[type="number"],
-select {
+select,
+input[type="text"] {
   background-color: #fbfff1;
   color: #090c9b;
   border: 3px solid #3066be;
