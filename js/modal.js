@@ -36,9 +36,9 @@ function displayContactForm(modalContent) {
 
 function emailContactInfo() {
   // Get user contact form input
-  var contactName = encodeURI(document.querySelector("#contact-name").value);
-  var contactSubject = encodeURI(document.querySelector("#contact-subject").value);
-  var contactBody = encodeURI(document.querySelector("#contact-body").value);
+  var contactName = encodeURI(document.querySelector("#contact-name").value).trim();
+  var contactSubject = encodeURI(document.querySelector("#contact-subject").value).trim();
+  var contactBody = encodeURI(document.querySelector("#contact-body").value).trim();
 
   // Send email using their default email program
   // Only send if form is populated
