@@ -73,20 +73,24 @@
                     </div>
                 </div>
             </section>
-            <!-- Country List -->
+
+            <!-- Modal Container Popop Box -->
             <div id="modal-container" class="modal-box">
                 <div id="modal-content-box">
                     <span class="modal-close">X</span>
-                    <p id="modal-content"></p>
+                    <div id="modal-content"></div>
                 </div>
             </div>
+
+            <!-- Country List Button -->
             <div id="country-list-container">
                 <button id="btn-country-list" onclick="displayModal('CountryList');">View Country List</button>
             </div>
+
             <footer>
                 <button id="btn-dark-light-mode">Light Mode</button>
                 Converter Developed by Bruce Brown, David Ding, Dave Oberlander, and Mason Johnson
-                <p><a href="mailto:doberlander@student.cvtc.edu">Contact Administrator</a></p>
+                <p><a href="#" onclick="displayModal('Contact');">Contact Administrator</a></p>
             </footer>
         </main>
         <script src="js/converter.js"></script>

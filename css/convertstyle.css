@@ -132,8 +132,12 @@ footer a {
   background-color: #bcc0f0;
   margin: 5% auto;
   padding: 20px;
-  width: 200px;
+  width: max-content;
   border: 1px solid black;
+}
+
+#modal-content {
+  margin-right: 30px;
 }
 
 .modal-close {
@@ -161,6 +165,22 @@ footer a {
   margin: 0 15px;
   height: 22px;
   width: 40px;
+}
+
+/* Contact Admin modal box */
+#contact-admin-container {
+  margin-top: 15px;
+}
+
+#contact-admin-container input[type="text"],
+#contact-admin-container textarea {
+  display: block;
+  margin-bottom: 10px;
+  width: 300px;
+}
+
+#contact-admin-container textarea {
+  height: 140px;
 }
 
 /* Original Currency Country and Type */
