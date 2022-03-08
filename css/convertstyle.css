@@ -26,7 +26,7 @@ main {
 
 /* Styling for Header 1 */
 h1 {
-  font-size: 52px;
+  font-size: 3.3em;
   font-variant: normal;
   font-weight: 900;
   color: #b4c5e4;
@@ -34,7 +34,7 @@ h1 {
 
 /* Styling for Header 2 */
 h2 {
-  font-size: 44px;
+  font-size: 1.5em;
   font-style: normal;
   font-variant: normal;
   font-weight: 700;
@@ -54,27 +54,17 @@ select,
 input[type="text"] {
   background-color: #fbfff1;
   color: #090c9b;
-  border: 3px solid #3066be;
+  border: 1px solid #3066be;
   font-size: 16px;
   width: fit-content;
   padding: 2px 8px;
   box-sizing: border-box;
 }
-
-/* Styling for submit */
-input[type="submit"] {
-  background-color: #3066be;
-  color: #fbfff1;
-  display: block;
-  font-size: 16px;
-  width: fit-content;
-  padding: 2px 8px;
-  box-sizing: border-box;
-}
-
 
 /* Styling for form buttons */
-input[type="button"] {
+input[type="button"],
+input[type="submit"],
+button {
   background-color: #3066be;
   color: #fbfff1;
   display: block;
@@ -83,18 +73,6 @@ input[type="button"] {
   padding: 2px 8px;
   box-sizing: border-box;
 }
-
-/* Styling for generic buttons */
-button {
-  background-color: #b4c5e4;
-  color: #3c3744;
-  display: block;
-  font-size: 14px;
-  width: fit-content;
-  padding: 2px 8px;
-  box-sizing: border-box;
-}
-
 
 /* Styling for Paragraphs and form labels */
 p,
@@ -125,23 +103,6 @@ footer a {
   font-size: 0.8em;
 }
 
-/* Styling for table headers */
-table th {
-  background-color: #090c9b;
-  border: 3px solid #3066be;
-  font-size: 20px;
-  padding: 8px;
-}
-
-/* Styling for table cells */
-table td {
-  background-color: #b4c5e4;
-  border: 3px solid #3066be;
-  font-size: 18px;
-  padding: 8px;
-  color: #3c3744;
-}
-
 /* Formatting each line of the input currency form */
 .form-line {
   margin: 1em 0;
@@ -150,7 +111,7 @@ table td {
 /* Country List Button */
 #btn-country-list {
   display: inline-block;
-  margin: 1em 0;
+  margin: 15px 15px 0;
 }
 
 /* back drop */
@@ -209,13 +170,85 @@ table td {
 
 /* Initially Hide Fields */
 #input-convert-to-country-div,
-#btn-submit,
-#converted-results {
+#btn-submit {
   display: none;
+}
+
+#btn-submit,
+#btn-reset {
+  margin-bottom: 15px;
 }
 
 /* Adjust the Result Values to Better Display The Number Values */
 #converted-results {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
+  display: none;
+}
+
+/* Results Data fields */
+#results-data-container-original,
+#results-data-container-converted {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-start;
+  border: 1px solid #2e4874;
+  background-color: #2f2b35;
+}
+
+.results-data-card {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+}
+
+.results-heading {
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.results-text {
+  font-size: 1em;
+}
+
+.results-amount {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+/* Responsive design for cell phones */
+@media only screen and (max-width: 600px) {
+  /* Form Input Fields */
+  input[type="number"],
+  select,
+  input[type="text"] {
+    font-size: 1.2em;
+    height: 2.5em;
+    margin-top: 5px;
+    width: 100%;
+  }
+
+  /* Form Buttons */
+  input[type="submit"],
+  input[type="button"],
+  button {
+    margin: 0 auto;
+    font-size: 1.8em;
+    width: 80%;
+  }
+
+  /* Container that holds the Country List Button */
+  #country-list-container {
+    text-align: center;
+    margin: 20px 0;
+    width: 100%;
+  }
+
+  /* dark-light-mode button */
+  #btn-dark-light-mode {
+    font-size: 1.6em;
+    margin-bottom: 20px;
+  }
 }

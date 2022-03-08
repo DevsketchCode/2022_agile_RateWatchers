@@ -126,7 +126,7 @@ function FillConversionResultsTable(amountEntered, originCurrency, newCurrency, 
 });
 
 // Display Country Conversion if data entered in currency field
-document.querySelector("#UserInputAmount").addEventListener("keypress", (event) => {
+document.querySelector("#UserInputAmount").addEventListener("keydown", (event) => {
   currencyCountryDiv = document.querySelector("#input-convert-to-country-div");
   convertButton = document.querySelector("#btn-submit");
   if(currencyCountryDiv.style.display === "none" || 
@@ -191,9 +191,6 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   else {
     resultsDiv.style.display = "none";
   }
-  
-  
-  
   
   
   // Display stats for new country on mouse over

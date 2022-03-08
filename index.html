@@ -24,7 +24,7 @@
                     </div>
                     <div id="input-amount-div" class="form-line">
                         <label for="UserInputAmount">Please enter an amount to convert: </label>
-                        <input type="text" id="UserInputAmount" name="UserInputAmount">
+                        <input type="text" id="UserInputAmount" name="UserInputAmount" maxlength="15">
                     </div>
                     <div id="input-convert-to-country-div" class="form-line">
                         <label for="UserConvertCurrency">Please select the country for currency conversion: </label>
@@ -41,39 +41,50 @@
             </section>
 
             <section id="converted-results">
-                <h2>Your entry and results will show below.</h2>
-                <table>
-                    <tr>
-                        <th>Amount Entered</th>
-                        <th>Origin Currency</th>
-                        <th>Origin Flag</th>
-                        <th>Converted Amount</th>
-                        <th>New Currency</th>
-                        <th>New Currency Flag</th>
-                        <th>Conversion Rate</th>
-                    </tr>
-                    <tr>
-                        <td id="AmountEntered">[insert user entry amount   ]</td>
-                        <td id="origin-currency-name">[insert currency name   ]</td>
-                        <td id="OriginFlag">[insert flag            ]</td>
-                        <td id="ConvertedAmount">[insert converted amount]</td>
-                        <td id="NewCurrencyName">[insert currency name   ]</td>
-                        <td id="NewFlag">[insert flag           ]</td>
-                        <td id="Rate">[insert conversion rate]</td>
-                    </tr>
-                </table>
-            </section>
-            
-                <!-- Country List -->
-                <div id="modal-container" class="modal-box">
-                    <div id="modal-content-box">
-                        <span class="modal-close">X</span>
-                        <p id="modal-content"></p>
+                <h2>Conversion Results</h2>
+                <div id="results-data-container-original">
+                    <div class="results-data-card">
+                        <p class="results-heading">Amount Entered</p>
+                        <div>
+                            <p id="AmountEntered" class="results-amount">[insert user entry amount   ]</p>
+                            <p id="origin-currency-name" class="results-text">[insert currency name   ]</p>
+                        </div>
+                    </div>
+                    <div class="results-data-card">
+                        <p class="results-heading">Origin Flag</p>
+                        <p id="OriginFlag" class="results-text">[insert flag            ]</p>
+                    </div>
+                </div><br>
+                <div id="results-data-container-converted">
+                    <div class="results-data-card">
+                        <p class="results-heading">Converted Amount</p>
+                        <div>
+                            <p id="ConvertedAmount" class="results-amount">[insert converted amount]</p>
+                            <p id="NewCurrencyName" class="results-text">[insert currency name   ]</p>
+                        </div>
+                    </div>
+                    <div class="results-data-card">
+                        <p class="results-heading">New Currency Flag</p>
+                        <p id="NewFlag" class="results-text">[insert flag           ]</p>
+                    </div>
+                    <div class="results-data-card">
+                        <p class="results-heading">Conversion Rate</p>
+                        <p id="Rate" class="results-amount">[insert conversion rate]</span>
                     </div>
                 </div>
-                <button id="btn-country-list" onclick="displayModal('CountryList');">View Country List</button><br>
+            </section>
+            <!-- Country List -->
+            <div id="modal-container" class="modal-box">
+                <div id="modal-content-box">
+                    <span class="modal-close">X</span>
+                    <p id="modal-content"></p>
+                </div>
+            </div>
+            <div id="country-list-container">
+                <button id="btn-country-list" onclick="displayModal('CountryList');">View Country List</button>
+            </div>
             <footer>
-                <button id="btn-dark-light-mode">Light Mode</button><br>
+                <button id="btn-dark-light-mode">Light Mode</button>
                 Converter Developed by Bruce Brown, David Ding, Dave Oberlander, and Mason Johnson
                 <p><a href="mailto:doberlander@student.cvtc.edu">Contact Administrator</a></p>
             </footer>
