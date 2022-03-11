@@ -125,6 +125,77 @@ function FillConversionResultsTable(amountEntered, originCurrency, newCurrency, 
   AddOption(document.querySelector("#UserConvertCurrency"));
 });
 
+// Sets the flag for the original and new currency countries
+function selectBanks(countrySelection) {
+  var countrySelected;
+
+  switch(countrySelection) {
+    
+    case "USA":
+      var topBanks = [];
+    break;
+    
+    case "Mexico":
+      
+    break;
+    
+    case "Canada":
+      
+    break;
+    
+    case "China":
+      
+    break;
+
+    case "Australia":
+      
+    break;
+
+    case "Barbados":
+      
+    break;
+
+    case "Bolivia":
+      
+    break;
+
+    case "Denmark":
+      
+    break;
+
+    case "Egypt":
+      
+    break;
+
+    case "Ecuador":
+      
+    break;
+
+    case "Gambia":
+      
+    break;
+
+    case "Georgia":
+      
+    break;
+
+    case "Grenada":
+      
+    break;
+
+    case "Jamaica":
+      
+    break;
+
+    case "Madagascar":
+      
+    break;
+  }
+
+  // Returns the selection
+  return countrySelected;
+}
+
 // Display Country Conversion if data entered in currency field
 document.querySelector("#UserInputAmount").addEventListener("keydown", (event) => {
   currencyCountryDiv = document.querySelector("#input-convert-to-country-div");
