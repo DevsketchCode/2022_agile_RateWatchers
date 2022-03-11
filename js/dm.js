@@ -193,22 +193,74 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   }
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   // Display stats for new country on mouse over
-  var newFlagStats = document.querySelector("#NewFlag");
-  
-  newFlagStats.addEventListener('mouseenter', () =>
-    newFlagStats.innerHTML = "Population: " + newPop + "<br />Language: " + newLang + "<br />GDP: " + newGDP + "<br />Capital: " + newCap + "<br />Leader: " + newLead);
+  function displayStats(){
+   
     
-  newFlagStats.addEventListener('mouseleave', () =>
-    newFlagStats.innerHTML = "<img src=\"images/" + newCountryFlag + "Flag.png\">");
+    var newFlagStats = document.querySelector("#NewFlag");
     
-  // Display stats for origin country on mouse over
-  var originFlagStats = document.querySelector("#OriginFlag");
-  
-  originFlagStats.addEventListener('mouseenter', () =>
+    // Display stats for new country on mouse over
+    newFlagStats.addEventListener('mouseenter', () =>
+      newFlagStats.innerHTML = "Population: " + newPop + "<br />Language: " + newLang + "<br />GDP: " + newGDP + "<br />Capital: " + newCap + "<br />Leader: " + newLead);
+      
+    newFlagStats.addEventListener('mouseleave', () =>
+      newFlagStats.innerHTML = "<img src=\"images/" + newCountryFlag + "Flag.png\">");
+      
+   
+    // Display stats for origin country on mouse over
+    var originFlagStats = document.querySelector("#OriginFlag");
+    
+    originFlagStats.addEventListener('mouseenter', () =>
     originFlagStats.innerHTML = "Population: " + originPop + "<br />Language: " + originLang + "<br />GDP: " + originGDP + "<br />Capital: " + originCap + "<br />Leader: " + originLead);
     
-  originFlagStats.addEventListener('mouseleave', () =>
-    originFlagStats.innerHTML = "<img src=\"images/" + originCountryFlag + "Flag.png\">");
+    originFlagStats.addEventListener('mouseleave', () =>
+      originFlagStats.innerHTML = "<img src=\"images/" + originCountryFlag + "Flag.png\">");
+     
+     
+    // Display on touch
+    var newFlagStatsTouch = document.querySelector("#NewFlag");
+    var originFlagStatsTouch = document.querySelector("#OriginFlag");
+    
+    // Display origin stats on touch (mobile)
+    function touchEndNew(){
+          originFlagStatsTouch.innerHTML = "<img src=\"images/" + originCountryFlag + "Flag.png\">";
+    }
+    function touchStartNew(){
+          originFlagStatsTouch.innerHTML = "Population: " + originPop + "<br />Language: " + originLang + "<br />GDP: " + originGDP + "<br />Capital: " + originCap + "<br />Leader: " + originLead;
+    }
+    function touchStartOld(){
+      newFlagStatsTouch.innerHTML = "Population: " + newPop + "<br />Language: " + newLang + "<br />GDP: " + newGDP + "<br />Capital: " + newCap + "<br />Leader: " + newLead;
+    }
+    function touchEndOld(){
+      newFlagStatsTouch.innerHTML = "<img src=\"images/" + newCountryFlag + "Flag.png\">";
+    }
+    originFlagStatsTouch.addEventListener('touchstart', touchStartNew); 
+        
+    originFlagStatsTouch.addEventListener('touchend', touchEndNew);
+        
+    newFlagStatsTouch.addEventListener('touchstart', touchStartOld);
+
+    newFlagStatsTouch.addEventListener('touchend', touchEndOld);
+      
+    
+  }
+  
+  displayStats();
+  
 });
 
