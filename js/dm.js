@@ -125,6 +125,137 @@ function FillConversionResultsTable(amountEntered, originCurrency, newCurrency, 
   AddOption(document.querySelector("#UserConvertCurrency"));
 });
 
+// Sets the flag for the original and new currency countries
+function selectBanks(countrySelection) {
+  const topBanks = [];
+
+  switch(countrySelection) {
+    
+    case "USA":
+      topBanks[0] = "JPMorgan Chase & Co.";
+      topBanks[1] = "Bank of America Corp";
+      topBanks[2] = "Wells Fargo & Co.";
+      topBanks[3] = "Citigroup Inc.";
+      topBanks[4] = "U.S. Bancorp";
+    break;
+    
+    case "Mexico":
+      topBanks[0] = "BBVA Bancomer";
+      topBanks[1] = "Santander Mexico";
+      topBanks[2] = "Banamex";
+      topBanks[3] = "Banorte";
+      topBanks[4] = "HSBC Mexico";
+    break;
+    
+    case "Canada":
+      topBanks[0] = "Royal Bank of Canada";
+      topBanks[1] = "Toronto-Dominion Bank";
+      topBanks[2] = "Bank of Nova Scotia";
+      topBanks[3] = "Bank of Montreal";
+      topBanks[4] = "Canadian Imperial Bank of Commerce";
+    break;
+    
+    case "China":
+      topBanks[0] = "Industrial and Commercial Bank of China";
+      topBanks[1] = "Bank of China";
+      topBanks[2] = "Agricultural Bank of China";
+      topBanks[3] = "China Construction Bank";
+      topBanks[4] = "Bank of Communications";
+    break;
+
+    case "Australia":
+      topBanks[0] = "National Australian Bank";
+      topBanks[1] = "Westpac Bank";
+      topBanks[2] = "Bank of Queensland";
+      topBanks[3] = "Macquarie Bank";
+      topBanks[4] = "Bendigo Bank";
+    break;
+
+    case "Barbados":
+      topBanks[0] = "Republic Bank";
+      topBanks[1] = "RBC Royal Bank";
+      topBanks[2] = "First Caribbean International Bank";
+      topBanks[3] = "Bank of Nova Scotia";
+      topBanks[4] = "First Citizens Bank";
+    break;
+
+    case "Bolivia":
+      topBanks[0] = "BISA Bank";
+      topBanks[1] = "Bank of Credit of Bolivia";
+      topBanks[2] = "Mercantil Santa Cruz Bank";
+      topBanks[3] = "National Bank of Bolivia";
+      topBanks[4] = "FIE Bank";
+    break;
+
+    case "Denmark":
+      topBanks[0] = "Danske Bank";
+      topBanks[1] = "Nykredit";
+      topBanks[2] = "Jyske Bank";
+      topBanks[3] = "Nordea";
+      topBanks[4] = "DLR Kredit";
+    break;
+
+    case "Egypt":
+      topBanks[0] = "Central Bank of Egypt";
+      topBanks[1] = "Credit Agricole";
+      topBanks[2] = "HSBC Bank Egypt";
+      topBanks[3] = "Bank of Alexandria";
+      topBanks[4] = "Qatar National Bank";
+    break;
+
+    case "Ecuador":
+      topBanks[0] = "Banco Pichincha";
+      topBanks[1] = "Banco de Guayaquil";
+      topBanks[2] = "Produbanco";
+      topBanks[3] = "Banco Promérica";
+      topBanks[4] = "Citi Ecuador";
+    break;
+
+    case "Gambia":
+      topBanks[0] = "First International Bank";
+      topBanks[1] = "International Commercial Bank";
+      topBanks[2] = "Guaranty Trust Bank Gambia";
+      topBanks[3] = "Prime Bank";
+      topBanks[4] = "Skye Bank Gambia";
+    break;
+
+    case "Georgia":
+      topBanks[0] = "TBC Bank";
+      topBanks[1] = "The Bank of Georgia";
+      topBanks[2] = "Liberty Bank";
+      topBanks[3] = "Basisbank";
+      topBanks[4] = "VTB Bank - Georgia";
+    break;
+
+    case "Grenada":
+      topBanks[0] = "Grenada State Bank";
+      topBanks[1] = "Southern Security Federal Credit Union";
+      topBanks[2] = "BankPlus";
+      topBanks[3] = "Renasant Bank";
+      topBanks[4] = "BancorpSouth";
+    break;
+
+    case "Jamaica":
+      topBanks[0] = "National Commercial Bank";
+      topBanks[1] = "Scotiabank Jamaica";
+      topBanks[2] = "Sagicor Bank";
+      topBanks[3] = "CIBC First Caribbean";
+      topBanks[4] = "First Global Bank";
+    break;
+
+    case "Madagascar":
+      topBanks[0] = "Central Bank of Madagascar";
+      topBanks[1] = "Access Bank";
+      topBanks[2] = "Bank of Africa";
+      topBanks[3] = "Banque Industrielle et Commerciale de Madagascar";
+      topBanks[4] = "Banque Malgache de L’ocean Indien";
+    break;
+  }
+
+  // Returns the selection
+  return topBanks;
+}
+
 // Display Country Conversion if data entered in currency field
 document.querySelector("#UserInputAmount").addEventListener("keydown", (event) => {
   currencyCountryDiv = document.querySelector("#input-convert-to-country-div");
