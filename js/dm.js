@@ -208,28 +208,36 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   
   
   
-  // Display stats for new country on mouse over
+  // Display stats for new country on click
   function displayStats(){
    
     
     var newFlagStats = document.querySelector("#NewFlag");
-    
-    // Display stats for new country on mouse over
-    newFlagStats.addEventListener('mouseenter', () =>
-      newFlagStats.innerHTML = "Population: " + newPop + "<br />Language: " + newLang + "<br />GDP: " + newGDP + "<br />Capital: " + newCap + "<br />Leader: " + newLead);
+    var newFlagStatsStatus = 1;
+    // Display stats for new country on click
+    newFlagStats.onclick = function() {
+      if(newFlagStatsStatus == 1){
+        newFlagStats.innerHTML = "Population: " + newPop + "<br />Language: " + newLang + "<br />GDP: " + newGDP + "<br />Capital: " + newCap + "<br />Leader: " + newLead;
+        return newFlagStatsStatus = 0;
+      } else {
+        newFlagStats.innerHTML = "<img src=\"images/" + newCountryFlag + "Flag.png\">";
+        return newFlagStatsStatus = 1;
+      }
+    }
       
-    newFlagStats.addEventListener('mouseleave', () =>
-      newFlagStats.innerHTML = "<img src=\"images/" + newCountryFlag + "Flag.png\">");
-      
-   
-    // Display stats for origin country on mouse over
+    // Display stats for origin country on click
     var originFlagStats = document.querySelector("#OriginFlag");
-    
-    originFlagStats.addEventListener('mouseenter', () =>
-    originFlagStats.innerHTML = "Population: " + originPop + "<br />Language: " + originLang + "<br />GDP: " + originGDP + "<br />Capital: " + originCap + "<br />Leader: " + originLead);
-    
-    originFlagStats.addEventListener('mouseleave', () =>
-      originFlagStats.innerHTML = "<img src=\"images/" + originCountryFlag + "Flag.png\">");
+    var originFlagStatus = 1;
+    originFlagStats.onclick = function() {
+      if(originFlagStatus == 1){
+        originFlagStats.innerHTML = "Population: " + originPop + "<br />Language: " + originLang + "<br />GDP: " + originGDP + "<br />Capital: " + originCap + "<br />Leader: " + originLead;
+        return originFlagStatus = 0;
+      } else {
+        originFlagStats.innerHTML = "<img src=\"images/" + originCountryFlag + "Flag.png\">";
+        return originFlagStatus = 1;
+      }
+      
+    }
      
      
     // Display on touch
@@ -259,6 +267,7 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
       
     
   }
+  
   
   displayStats();
   
