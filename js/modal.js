@@ -184,7 +184,7 @@ function selectBanks(countrySelection) {
   return topBanks;
 }
 
-// Function selects and displays the top five banks
+// Function selects and displays the top banks
 function displayBanks(modalContent) {
   var listItem;
 
@@ -245,11 +245,11 @@ function displayModal(content) {
   // If content exists and is in switch case, then display the modal, with options to close it.
   if(content !== "") {
     // Display Modal div
-    modalContainer.style.display = "block";
+    $(modalContainer).fadeIn(1250).css("display", "block");
 
     //Close the country list if clicks close Button
     modalClose.addEventListener("click",function() {
-      modalContainer.style.display = "none";
+      $(modalContainer).fadeOut("slow");
     });
 
     // Only close the modal if the option is set to true
@@ -257,7 +257,7 @@ function displayModal(content) {
       // Close the modal box if clicks outside of div
       window.onclick = function(event) {
         if (event.target === modalContainer) {
-          modalContainer.style.display = "none";
+          $(modalContainer).fadeOut("slow");
         }
       };
     } else {

@@ -32,7 +32,7 @@ function AddOption(selection) {
 
 // Show field function
 function ShowField(id) {
-  id.style.display = "block";
+  $(id).fadeIn(1250).css("display", "block");
 }
 
 // Sets the flag for the original and new currency countries
@@ -195,10 +195,10 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
     $("#btn-bank-list").html("View  " + $("select#UserConvertCurrency").val() + "'s Top Banks");
     if(screen.width >= 1000) {
     $("#input-convert-to-country-div").css("display", "inline-block");
-    $("#new-currency-banks").css("display", "inline-block");
+    $("#new-currency-banks").fadeIn(1250).css("display", "inline-block");
     }
     else {
-      $("#new-currency-banks").css("display", "block");
+      $("#new-currency-banks").fadeIn(1250).css("display", "block");
     }
 
     // Refreshes the page if either selection has changed
