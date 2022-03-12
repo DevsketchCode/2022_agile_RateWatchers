@@ -13,8 +13,8 @@ function displayCountryList(modalContent) {
     modalContent.innerHTML += "<div class='model-contry-div'><img src='images/" + countryList[i].toLowerCase() + "Flag.png' class='modal-flags' />" + countryList[i] + "</div>";
   }
 
-  //add a world map image, opening with the CountryList content and fit to the width of the popup.
-  modalContent.innerHTML += "<div class='model-country-div' style='object-fit: cover'><img src='images/world_map.png' style='height: 200px; width: 300px; margin: 0 15px;'></div>"; 
+  // add a world map image, opening with the CountryList content and fit to the width of the popup.
+  modalContent.innerHTML += "<p style='font-size: 16px;'>World Map of Countries</p><div class='model-country-div' style='object-fit: cover'><img src='images/world_map.png' style='height: 200px; width: 300px; margin: 0 15px;'></div>"; 
 }
 
 // Fills the modal box with Contact Administrator format
