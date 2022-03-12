@@ -186,8 +186,35 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   if(amountEntered !== "" && !isNaN(amountEntered) && Number(amountEntered) > 0){
     resultsDiv = document.querySelector("#converted-results");
     ShowField(resultsDiv);
-    var bankListSection = document.querySelector("#new-currency-banks");
-    bankListSection.style.display = "block";
+
+    // Saves the value of the dropdowns
+    currentOriginCountry = $("select#UserInputCurrency").val();
+    currentNewCountry = $("select#UserConvertCurrency").val();
+
+    // Displays the Top Banks button
+    $("#btn-bank-list").html("View  " + $("select#UserConvertCurrency").val() + "'s Top Banks");
+    if(screen.width >= 1000) {
+    $("#input-convert-to-country-div").css("display", "inline-block");
+    $("#new-currency-banks").css("display", "inline-block");
+    }
+    else {
+      $("#new-currency-banks").css("display", "block");
+    }
+
+    // Refreshes the page if either selection has changed
+    $("select#UserInputCurrency").change(function() {
+      if(currentOriginCountry !== $("select#UserInputCurrency").val()) {
+        $("#UserInputAmount").val("");
+        location.reload();
+      }
+    });
+    $("select#UserConvertCurrency").change(function() {
+      if(currentNewCountry !== $("select#UserConvertCurrency").val()) {
+        $("#UserInputAmount").val("");
+        location.reload();
+      }
+    });
+
   }
   else {
     resultsDiv.style.display = "none";

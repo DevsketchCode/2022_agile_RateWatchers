@@ -192,7 +192,7 @@ function displayBanks(modalContent) {
   var bankList = selectBanks(document.querySelector("#UserConvertCurrency").value);
 
   // Adds a title
-  modalContent.innerHTML += "<h2>Top Banks:</h2>";
+  modalContent.innerHTML += "<h2>" + document.querySelector("#UserConvertCurrency").value + "'s Top Banks:</h2>";
 
   // Creates the ordered list under the TopBanks Div
   var orderedList = document.createElement("OL");
