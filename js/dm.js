@@ -204,10 +204,12 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
     newFlagStats.onclick = function() {
       if(newFlagStatsStatus === 1){
         newFlagStats.innerHTML = "Population: " + newPop + "<br />Language: " + newLang + "<br />GDP: " + newGDP + "<br />Capital: " + newCap + "<br />Leader: " + newLead;
-        return newFlagStatsStatus == 0;
+        newFlagStatsStatus = 0;
+        return newFlagStatsStatus;
       } else {
         newFlagStats.innerHTML = "<img src=\"images/" + newCountryFlag + "Flag.png\">";
-        return newFlagStatsStatus == 1;
+        newFlagStatsStatus = 1;
+        return newFlagStatsStatus;
       }
     };
       
@@ -217,10 +219,12 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
     originFlagStats.onclick = function() {
       if(originFlagStatus === 1){
         originFlagStats.innerHTML = "Population: " + originPop + "<br />Language: " + originLang + "<br />GDP: " + originGDP + "<br />Capital: " + originCap + "<br />Leader: " + originLead;
-        return originFlagStatus == 0;
+        originFlagStatus = 0;
+        return originFlagStatus;
       } else {
         originFlagStats.innerHTML = "<img src=\"images/" + originCountryFlag + "Flag.png\">";
-        return originFlagStatus == 1;
+        originFlagStatus = 1;
+        return originFlagStatus;
       }
       
     };
