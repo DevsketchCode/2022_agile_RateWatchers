@@ -191,29 +191,10 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   }
   else {
     resultsDiv.style.display = "none";
-  }
-  
-  
-<<<<<<< HEAD
-  // Display stats for new country on mouse over
-=======
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  }  
   
   
   // Display stats for new country on click
->>>>>>> ca92caa9b97e9d6b08c959e6695269ca54941668
   function displayStats(){
    
     
