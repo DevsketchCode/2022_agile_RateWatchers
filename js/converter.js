@@ -276,11 +276,11 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
       break;
       
       case "Barbados":
-        originPop = "287,000";
-        originLang = "English";
-        originGDP = "4.366 Billion";
-        originCap = "Bridgetown";
-        originLead = "Mia Mottley";
+        newPop = "287,000";
+        newLang = "English";
+        newGDP = "4.366 Billion";
+        newCap = "Bridgetown";
+        newLead = "Mia Mottley";
         firstConvertToCountry_CurrencyCode = "BBD";
         firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);
       break;
