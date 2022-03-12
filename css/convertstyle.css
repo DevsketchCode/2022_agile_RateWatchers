@@ -238,6 +238,12 @@ footer a {
   font-weight: bold;
 }
 
+#new-currency-banks {
+  display: none;
+  margin: 20px 0;
+  width: 100%;
+}
+
 /* Responsive design for cell phones */
 @media only screen and (max-width: 600px) {
   /* Form Input Fields */
