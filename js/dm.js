@@ -179,6 +179,15 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   originFlagLabel.appendChild(originFlagImage);
   newFlagLabel.appendChild(newFlagImage);
 
+  //configure map options. We can recycle some of the variables used. 
+  var origin_Map = selectFlag(originSelected.value);
+  var destination_Map = selectFlag(countrySelected.value);
+
+  //configure the option to throw in a map.
+  //<img src="images/australia_map.png">
+  document.querySelector("#OriginMap").innerHTML = '<img src="images/' + origin_Map + '_map.png" style="max-height:200px;max-width:200px;height:auto;width:auto;">';
+  document.querySelector("#NewMap").innerHTML = '<img src="images/' + destination_Map + '_map.png" style="max-height:200px;max-width:200px;height:auto;width:auto;">';
+
   // Populate the Results Fields
   FillConversionResultsTable(amountEntered, originCurrencyName, newCurrencyName, newFinalAmount, newFinalRate);
 
