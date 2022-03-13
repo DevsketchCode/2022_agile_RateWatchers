@@ -21,6 +21,12 @@ validate the data and convert the currencies.
   var newGDP;
   var newCap;
   var newLead;
+  
+  // Variable for base conversion rates
+  var originCurrencyCode = "";
+  var originSelectionBaseRate = "";
+  var firstConvertToCountry_CurrencyCode = "";
+  var firstConvertToCountry_BaseRate = 0;
 
 // Event listener for the submit button contains the logic for converting amounts.
 document.querySelector("#convertForm").addEventListener("submit", function(e) {
@@ -61,12 +67,7 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
     // Variable to grab new country flag
     var countryNewData = document.querySelector("#UserConvertCurrency").value;
 
-    // Variable for base conversion rates
-    var originCurrencyCode = "";
-    var originSelectionBaseRate = "";
-    var firstConvertToCountry_CurrencyCode = "";
-    var firstConvertToCountry_BaseRate = 0;
-
+    
     // Switch case to grab what was selected and asign stats
     // This will also set the base conversion rate for the selected country. Base Rate = the countries rate to 1 USD
     switch(countryOriginData) {

@@ -20,7 +20,7 @@ function AddOption(selection) {
   const countryCurrency = ["United States Dollar (USD)", "Mexican Peso (MXN)", "Canadian Dollar (CAD)", "Chinese Yuan Renminbi (CNY)", "Australian dollar (AUD)",
    "Barbadian Dollar (BBD)", "Bolivian Boliviano (BOB)", "Danish Krone (DKK)", "Egyptian Pound (EGP)", "United States Dollar (USD)", "Gambian Dalasi (GMD)", 
    "Georgian Lari (GEL)", "East Caribbean Dollar (XCD)", "Jamaican Dollar (JMD)", "Malagasy Ariary (MGA)"];
-
+   
   // Sets the options for the drop down fields 
   for(var i = 0; i < country.length; i++) {
     var option = document.createElement("option");
@@ -263,6 +263,37 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
         return originFlagStatus;
       }
       
+    };
+    
+    // Display image of currency sign
+    // New country currency
+    var newCountryCurrency = document.querySelector("#ConvertedAmount");
+    var newCurrencyStatus = 1;
+    newCountryCurrency.onclick = function(){
+      if(newCurrencyStatus === 1){
+        newCountryCurrency.innerHTML = "<img src=\"images/" + firstConvertToCountry_CurrencyCode + "_Currency.png\">";
+        newCurrencyStatus = 0;
+        return newCurrencyStatus;
+      } else {
+        newCountryCurrency.innerHTML = newFinalAmount;
+        newCurrencyStatus = 1;
+        return newCurrencyStatus;
+      }
+    };
+    
+    // Origin country currency
+    var originCountryCurrency = document.querySelector("#AmountEntered");
+    var originCurrencyStatus = 1;
+    originCountryCurrency.onclick = function(){
+      if(originCurrencyStatus === 1){
+        originCountryCurrency.innerHTML = "<img src=\"images/" + originCurrencyCode + "_Currency.png\">";
+        originCurrencyStatus = 0;
+        return originCurrencyStatus;
+      } else {
+        originCountryCurrency.innerHTML = amountEntered;
+        originCurrencyStatus = 1;
+        return originCurrencyStatus;
+      }
     };
      
      
