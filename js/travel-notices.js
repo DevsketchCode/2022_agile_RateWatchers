@@ -2,7 +2,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
     //get id for the destination info paragraph
     //var destination_info = document.querySelector("#destination-information");
 
-    console.log(document.querySelector("#UserConvertCurrency").value);
+    //for test purposes only
+    //console.log(document.querySelector("#UserConvertCurrency").value);
 
     switch(document.querySelector("#UserConvertCurrency").value) {
         
