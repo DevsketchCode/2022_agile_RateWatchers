@@ -35,6 +35,11 @@ function ShowField(id) {
   $(id).fadeIn("slow").css("display", "block");
 }
 
+// Hide field function
+function hideField(id) {
+  $(id).fadeOut("fast");
+}
+
 // Sets the flag for the original and new currency countries
 function selectFlag(countrySelection) {
   var countrySelected;
@@ -219,17 +224,19 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
     // Displays the fixed amount tables
     $("#conversion-tables").fadeIn("slow").css("display", "visible");    
 
-    // Refreshes the page if either selection has changed
+    // Rehides the results fields, conversion tables, and top banks button if selection changed
     $("select#UserInputCurrency").change(function() {
       if(currentOriginCountry !== $("select#UserInputCurrency").val()) {
-        $("#UserInputAmount").val("");
-        location.reload();
+        hideField(resultsDiv);
+        hideField("#new-currency-banks");
+        hideField("#conversion-tables");
       }
     });
     $("select#UserConvertCurrency").change(function() {
       if(currentNewCountry !== $("select#UserConvertCurrency").val()) {
-        $("#UserInputAmount").val("");
-        location.reload();
+        hideField(resultsDiv);
+        hideField("#new-currency-banks");
+        hideField("#conversion-tables");
       }
     });
 
