@@ -249,7 +249,8 @@ footer a {
   text-align: center;
 }
 
-#conversion-table-one, #conversion-table-two {
+#conversion-table-one, 
+#conversion-table-two {
   overflow-y: auto;
 }
 
@@ -260,7 +261,8 @@ table {
   width: 100%;
 }
 
-th, td {
+th, 
+td {
   border: 2px outset white;
   border-radius: 5px;
   text-align: center;
@@ -287,7 +289,6 @@ th img {
   flex: 100%;
   padding: 5px;
 }
-
 
 /* Responsive design for cell phones */
 @media only screen and (max-width: 600px) {
