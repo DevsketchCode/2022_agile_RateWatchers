@@ -196,7 +196,8 @@ footer a {
 
 /* Initially Hide Fields */
 #input-convert-to-country-div,
-#btn-submit {
+#btn-submit,
+#btn-reset {
   display: none;
 }
 

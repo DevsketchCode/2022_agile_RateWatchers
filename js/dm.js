@@ -163,6 +163,10 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   // Alert user conversions may not be up to date
   alert("Conversions may not be up to date.");
 
+  // Show the reset button
+  var resetButton = document.querySelector("#btn-reset");
+  ShowField(resetButton);
+
   // Get Values Form User Input
   var amountEntered = document.querySelector("#UserInputAmount").value;
   var countrySelected = document.querySelector("#UserConvertCurrency");
