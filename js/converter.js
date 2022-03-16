@@ -29,6 +29,9 @@ validate the data and convert the currencies.
   var firstConvertToCountry_BaseRate = 0;
 
   // Functions
+  function displayFunctionMessage(){
+    alert("Flags can be clicked to display extra information about them.");
+  }
 
   // Calculates the values for the tables
   function updateTableAmounts (rate, tableCell, tablePreset) {

@@ -381,5 +381,7 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   
   displayStats();
   
+ 
+  
 });
 
