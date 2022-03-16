@@ -113,10 +113,25 @@ function selectFlag(countrySelection) {
 
 // Fill Results Fields
 function FillConversionResultsTable(amountEntered, originCurrency, newCurrency, newFinalAmount, newFinalRate) {
-  document.querySelector("#AmountEntered").innerHTML = amountEntered;
+
+  // Determine if the currency symbol should show before or after the amount
+  let amountText;
+  if(originCurSymbolBeforeAmt) {
+    amountText = originCurSymbol + " " + amountEntered;
+  } else {
+    amountText = amountEntered + " " + originCurSymbol;
+  }
+  let convertedAmtText;
+  if(newCurSymbolBeforeAmt) {
+    convertedAmtText = newCurSymbol + " " + newFinalAmount;
+  } else {
+    convertedAmtText = newFinalAmount + " " + newCurSymbol;
+  }
+
+  document.querySelector("#AmountEntered").innerHTML = amountText;
   document.querySelector("#origin-currency-name").innerHTML = originCurrency;
   document.querySelector("#NewCurrencyName").innerHTML = newCurrency;
-  document.querySelector("#ConvertedAmount").innerHTML = newFinalAmount;
+  document.querySelector("#ConvertedAmount").innerHTML = convertedAmtText;
   document.querySelector("#Rate").innerHTML = newFinalRate;
   
 }

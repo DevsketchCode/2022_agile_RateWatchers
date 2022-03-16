@@ -167,6 +167,12 @@ footer a {
   width: 40px;
 }
 
+/* modal country flag */
+.modal-country-flag {
+  margin: 0 15px;
+  width: 300px;
+}
+
 /* Contact Admin modal box */
 #contact-admin-container {
   margin-top: 15px;
@@ -327,5 +333,15 @@ th img {
   .row {
     display: flex;
     flex-wrap: wrap;
+  }
+
+  /* modal country flag */
+  .modal-country-flag {
+    margin: 0 0 0 10px;
+    width: 200px;
+  }
+
+  #modal-content {
+    margin: 0;
   }
 }

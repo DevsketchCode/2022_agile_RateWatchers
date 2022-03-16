@@ -15,12 +15,16 @@ validate the data and convert the currencies.
   let originGDP;
   let originCap;
   let originLead;
+  let originCurSymbol;
+  let originCurSymbolBeforeAmt;
   
   let newPop;
   let newLang;
   let newGDP;
   let newCap;
   let newLead;
+  let newCurSymbol;
+  let newCurSymbolBeforeAmt;
   
   // Variable for base conversion rates
   var originCurrencyCode = "";
@@ -105,6 +109,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originCap = "Washingtion, D.C.";
         originLead = "Joe Biden";
         originCurrencyCode = "USD";
+        originCurSymbol = "$";
+        originCurSymbolBeforeAmt = true;
         originSelectionBaseRate = baseRateMap.get(originCurrencyCode);
       break;
 
@@ -115,6 +121,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originCap = "Mexico City";
         originLead = "Andres Manuel Lopez Obrador";
         originCurrencyCode = "MXN";
+        originCurSymbol = "$";
+        originCurSymbolBeforeAmt = true;
         originSelectionBaseRate = baseRateMap.get(originCurrencyCode);
       break;
       
@@ -125,6 +133,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originCap = "Ottawa";
         originLead = "Justin Trudeau";
         originCurrencyCode = "CAD";
+        originCurSymbol = "$";
+        originCurSymbolBeforeAmt = true;
         originSelectionBaseRate = baseRateMap.get(originCurrencyCode);        
       break;
       
@@ -135,6 +145,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originCap = "Beijing";
         originLead = "Xi Jinping";
         originCurrencyCode = "CNY";
+        originCurSymbol = "¥";
+        originCurSymbolBeforeAmt = true;
         originSelectionBaseRate = baseRateMap.get(originCurrencyCode);       
       break;
       
@@ -145,6 +157,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originCap = "Canberra";
         originLead = "Scott Morrison";
         originCurrencyCode = "AUD";
+        originCurSymbol = "$";
+        originCurSymbolBeforeAmt = true;
         originSelectionBaseRate = baseRateMap.get(originCurrencyCode);
       break;
       
@@ -155,6 +169,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originCap = "Bridgetown";
         originLead = "Mia Mottley";
         originCurrencyCode = "BBD";
+        originCurSymbol = "$";
+        originCurSymbolBeforeAmt = true;
         originSelectionBaseRate = baseRateMap.get(originCurrencyCode);
       break;
       
@@ -165,6 +181,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originCap = "Sucre";
         originLead = "Luis Acre";
         originCurrencyCode = "BOB";
+        originCurSymbol = "Bs.";
+        originCurSymbolBeforeAmt = true;
         originSelectionBaseRate = baseRateMap.get(originCurrencyCode);
       break;
       
@@ -175,6 +193,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originCap = "Copenhagen";
         originLead = "Mette Frederiksen";
         originCurrencyCode = "DKK";
+        originCurSymbol = "kr.";
+        originCurSymbolBeforeAmt = false;
         originSelectionBaseRate = baseRateMap.get(originCurrencyCode);
       break;
       
@@ -185,6 +205,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originCap = "Cairo";
         originLead = "Abdel Fattah Al-Sisi";
         originCurrencyCode = "EGP";
+        originCurSymbol = "E£";
+        originCurSymbolBeforeAmt = true;
         originSelectionBaseRate = baseRateMap.get(originCurrencyCode);
       break;
       
@@ -195,6 +217,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originCap = "Quito";
         originLead = "Guillermo Lasso";
         originCurrencyCode = "USD";
+        originCurSymbol = "$";
+        originCurSymbolBeforeAmt = true;
         originSelectionBaseRate = baseRateMap.get(originCurrencyCode);
       break;
       
@@ -205,6 +229,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originCap = "Banjul";
         originLead = "Adama Barrow";
         originCurrencyCode = "GMD";
+        originCurSymbol = "D";
+        originCurSymbolBeforeAmt = false;
         originSelectionBaseRate = baseRateMap.get(originCurrencyCode);
       break;
       
@@ -215,6 +241,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originCap = "Tbilisi";
         originLead = "Salome Zourabichvili";
         originCurrencyCode = "GEL";
+        originCurSymbol = "ლ";
+        originCurSymbolBeforeAmt = false;
         originSelectionBaseRate = baseRateMap.get(originCurrencyCode);
       break;
       
@@ -225,6 +253,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originCap = "Saint George's";
         originLead = "Keith Mitchell";
         originCurrencyCode = "XCD";
+        originCurSymbol = "$";
+        originCurSymbolBeforeAmt = true;
         originSelectionBaseRate = baseRateMap.get(originCurrencyCode);
       break;
       
@@ -235,6 +265,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originCap = "Kingston";
         originLead = "Andrew Holness";
         originCurrencyCode = "JMD";
+        originCurSymbol = "$";
+        originCurSymbolBeforeAmt = true;
         originSelectionBaseRate = baseRateMap.get(originCurrencyCode);
       break;
       
@@ -245,6 +277,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originCap = "Antananarivo";
         originLead = "Andry Rajoelina";
         originCurrencyCode = "MGA";
+        originCurSymbol = "Ar";
+        originCurSymbolBeforeAmt = true;
         originSelectionBaseRate = baseRateMap.get(originCurrencyCode);
       break;
     }
@@ -258,6 +292,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "20.94 Trillion";
         newCap = "Washingtion, D.C.";
         newLead = "Joe Biden";
+        newCurSymbol = "$";
+        newCurSymbolBeforeAmt = true;
         firstConvertToCountry_CurrencyCode = "USD";
         firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);
       break;
@@ -268,6 +304,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "1.076 Trillion";
         newCap = "Mexico City";
         newLead = "Andres Manuel Lopez Obrador";
+        newCurSymbol = "$";
+        newCurSymbolBeforeAmt = true;
         firstConvertToCountry_CurrencyCode = "MXN";
         firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);
       break;
@@ -278,6 +316,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "1.643";
         newCap = "Ottawa";
         newLead = "Justin Trudeau";
+        newCurSymbol = "$";
+        newCurSymbolBeforeAmt = true;
         firstConvertToCountry_CurrencyCode = "CAD";
         firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);        
       break;
@@ -288,6 +328,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "14.72 Trillion";
         newCap = "Beijing";
         newLead = "Xi Jinping";
+        newCurSymbol = "¥";
+        newCurSymbolBeforeAmt = true;
         firstConvertToCountry_CurrencyCode = "CNY";
         firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);
       break;
@@ -298,6 +340,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "1.331 Trillion";
         newCap = "Canberra";
         newLead = "Scott Morrison";
+        newCurSymbol = "$";
+        newCurSymbolBeforeAmt = true;
         firstConvertToCountry_CurrencyCode = "AUD";
         firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);
       break;
@@ -308,6 +352,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "4.366 Billion";
         newCap = "Bridgetown";
         newLead = "Mia Mottley";
+        newCurSymbol = "$";
+        newCurSymbolBeforeAmt = true;
         firstConvertToCountry_CurrencyCode = "BBD";
         firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);
       break;
@@ -318,6 +364,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "36.69 Billion";
         newCap = "Sucre";
         newLead = "Luis Acre";
+        newCurSymbol = "Bs.";
+        newCurSymbolBeforeAmt = true;
         firstConvertToCountry_CurrencyCode = "BOB";
         firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);       
       break;
@@ -328,6 +376,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "355.2 Billion";
         newCap = "Copenhagen";
         newLead = "Mette Frederiksen";
+        newCurSymbol = "kr.";
+        newCurSymbolBeforeAmt = false;
         firstConvertToCountry_CurrencyCode = "DKK";
         firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);        
       break;
@@ -338,6 +388,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "363.1 Billion";
         newCap = "Cairo";
         newLead = "Abdel Fattah Al-Sisi";
+        newCurSymbol = "E£";
+        newCurSymbolBeforeAmt = true;
         firstConvertToCountry_CurrencyCode = "EGP";
         firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);        
       break;
@@ -348,6 +400,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "98.81 Billion";
         newnCap = "Quito";
         newLead = "Guillermo Lasso";
+        newCurSymbol = "$";
+        newCurSymbolBeforeAmt = true;
         firstConvertToCountry_CurrencyCode = "USD";
         firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);        
       break;
@@ -358,6 +412,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         originGDP = "1.902 Billion";
         originCap = "Banjul";
         originLead = "Adama Barrow";
+        newCurSymbol = "D";
+        newCurSymbolBeforeAmt = false;
         firstConvertToCountry_CurrencyCode = "GMD";
         firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);        
       break;
@@ -368,6 +424,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "15.89 Billion";
         newCap = "Tbilisi";
         newLead = "Salome Zourabichvili";
+        newCurSymbol = "ლ";
+        newCurSymbolBeforeAmt = false;
         firstConvertToCountry_CurrencyCode = "GEL";
         firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);        
       break;
@@ -378,6 +436,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "1.089 Billion";
         newCap = "Saint George's";
         newLead = "Keith Mitchell";
+        newCurSymbol = "$";
+        newCurSymbolBeforeAmt = true;
         firstConvertToCountry_CurrencyCode = "XCD";
         firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);        
       break;
@@ -388,6 +448,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "13.81 Billion";
         newCap = "Kingston";
         newLead = "Andrew Holness";
+        newCurSymbol = "$";
+        newCurSymbolBeforeAmt = true;
         firstConvertToCountry_CurrencyCode = "JMD";
         firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);        
       break;
@@ -398,6 +460,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
         newGDP = "13.72 Billion";
         newCap = "Antananarivo";
         newLead = "Andry Rajoelina";
+        newCurSymbol = "Ar";
+        newCurSymbolBeforeAmt = true;
         firstConvertToCountry_CurrencyCode = "MGA";
         firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);        
       break;
