@@ -243,6 +243,50 @@ footer a {
   margin: 20px 0;
 }
 
+#conversion-tables {
+  display: none;
+}
+
+#conversion-table-one, #conversion-table-two {
+  overflow-y: auto;
+}
+
+table {
+  border: 2px outset white;
+  border-radius: 10px;
+  border-spacing: 0;
+  width: 100%;
+}
+
+th, td {
+  border: 2px outset white;
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px;
+}
+
+th img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.column {
+  flex: 100%;
+  padding: 5px;
+}
+
+
 /* Responsive design for cell phones */
 @media only screen and (max-width: 600px) {
   /* Form Input Fields */
@@ -275,5 +319,10 @@ footer a {
   #btn-dark-light-mode {
     font-size: 1.6em;
     margin-bottom: 20px;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
   }
 }

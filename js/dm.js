@@ -152,15 +152,11 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   var originCurrencyName = originSelected.options[originSelected.selectedIndex].text;
   var newCurrencyName = countrySelected.options[countrySelected.selectedIndex].text;
 
-
-  var originCountryFlag;
-  var newCountryFlag;
-
   // Sets the flag for the original country currency selected by the user
-  originCountryFlag = selectFlag(originSelected.value);
+  var originCountryFlag = selectFlag(originSelected.value);
 
   // Sets the flag for the new country currency selected by the user
-  newCountryFlag = selectFlag(countrySelected.value);
+  var newCountryFlag = selectFlag(countrySelected.value);
 
   // Sets the flag labels in the results to blank
   var originFlagLabel = document.querySelector("#OriginFlag");
@@ -190,6 +186,16 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
     // Saves the value of the dropdowns
     currentOriginCountry = $("select#UserInputCurrency").val();
     currentNewCountry = $("select#UserConvertCurrency").val();
+    
+    //Creates an image tag variable for use for the fixed amount tables
+    var imageFlag1 = "<img src='images/" + originCountryFlag + "Flag.png" + "' alt='" + originSelected.value +"' width='20' height='15'>";
+    var imageFlag2 = "<img src='images/" + newCountryFlag + "Flag.png" + "' alt='" + countrySelected.value +"' width='20' height='15'>";
+
+    // Fills in the fixed amount table information                                                                                                                
+    $("#original-currency-first").html(imageFlag1 + currentOriginCountry);
+    $("#foreign-currency-first").html(imageFlag2 + currentNewCountry);
+    $("#original-currency-second").html(imageFlag2 + currentNewCountry);
+    $("#foreign-currency-second").html(imageFlag1 + currentOriginCountry);
 
     // Displays the Top Banks button
     $("#btn-bank-list").html("View  " + $("select#UserConvertCurrency").val() + "'s Top Banks");
@@ -200,6 +206,9 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
     else {
       $("#new-currency-banks").fadeIn(1250).css("display", "block");
     }
+
+    // Displays the fixed amount tables
+    $("#conversion-tables").fadeIn(1250).css("display", "block");    
 
     // Refreshes the page if either selection has changed
     $("select#UserInputCurrency").change(function() {

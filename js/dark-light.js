@@ -27,6 +27,10 @@ function lightMode() {
     //Set the button to read Dark Mode.
     document.getElementById('btn-dark-light-mode').innerHTML = "Dark Mode";
 
+    // Sets the fixed rate table's border color
+    $("table").css("border-color", "rgb(48, 102, 190)");
+    $("th, td").css("border-color", "rgb(48, 102, 190)");
+
 }
 
 //user wants to switch to dark mode. Dark mode is also default
@@ -56,6 +60,10 @@ function darkMode() {
 
     //Set the button to read Light Mode.
     document.getElementById('btn-dark-light-mode').innerHTML = "Light Mode";
+
+    // Sets the fixed rate table's border color
+    $("table").css("border-color", "white");
+    $("th, td").css("border-color", "white");
 }
 
 function configureLights() {

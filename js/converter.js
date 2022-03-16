@@ -22,6 +22,29 @@ validate the data and convert the currencies.
   var newCap;
   var newLead;
 
+  // Functions
+
+  // Calculates the values for the tables
+  function updateTableAmounts (rate, tableCell, tablePreset) {
+
+    // Preset amounts
+    var presetAmount = [5, 10, 50, 100, 200];
+    var tableAmount = 0;
+    var cellCounter = 1;
+
+    for (i = 0; i < presetAmount.length; i++) {
+
+      // Calculates the amount and adds it to an array
+    tableAmount = Math.round((rate * presetAmount[i])*100)/100;
+      $("#" + tableCell + cellCounter).html(tableAmount);
+      $("#" + tablePreset + cellCounter).html(presetAmount[i]);
+      cellCounter++;
+    }
+    
+  }
+
+  // Remaining code
+
 // Event listener for the submit button contains the logic for converting amounts.
 document.querySelector("#convertForm").addEventListener("submit", function(e) {
   
@@ -384,8 +407,13 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
     // ((ConvertToBaseRate / OriginBaseRate) * inputAmount)
     
     newFinalRate = Math.round((firstConvertToCountry_BaseRate / originSelectionBaseRate)*100)/100;
+    secondFinalRate = Math.round((originSelectionBaseRate / firstConvertToCountry_BaseRate)*100)/100;
 
     newFinalAmount = Math.round((newFinalRate * userInput)*100)/100;
 
+    // Sets the cells for the first table
+    updateTableAmounts(newFinalRate, "TableOneAmount", "TableOneSet");
+    // Sets the cells for the second table
+    updateTableAmounts(secondFinalRate, "TableTwoAmount", "TableTwoSet");
   }
 });
