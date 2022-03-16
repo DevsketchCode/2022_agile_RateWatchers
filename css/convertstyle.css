@@ -245,6 +245,8 @@ footer a {
 
 #conversion-tables {
   display: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
 }
 
 #conversion-table-one, #conversion-table-two {
