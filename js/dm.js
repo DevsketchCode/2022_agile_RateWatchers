@@ -197,8 +197,8 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
     currentNewCountry = $("select#UserConvertCurrency").val();
     
     //Creates an image tag variable for use for the fixed amount tables
-    var imageFlag1 = "<img src='images/" + originCountryFlag + "Flag.png" + "' alt='" + originSelected.value +"' width='20' height='15'>";
-    var imageFlag2 = "<img src='images/" + newCountryFlag + "Flag.png" + "' alt='" + countrySelected.value +"' width='20' height='15'>";
+    var imageFlag1 = "<img src='images/" + originCountryFlag + "Flag.png" + "' alt='" + originSelected.value +"' width='40' height='30'>";
+    var imageFlag2 = "<img src='images/" + newCountryFlag + "Flag.png" + "' alt='" + countrySelected.value +"' width='40' height='30'>";
 
     // Fills in the fixed amount table information                                                                                                                
     $("#original-currency-first").html(imageFlag1 + currentOriginCountry);
@@ -217,7 +217,7 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
     }
 
     // Displays the fixed amount tables
-    $("#conversion-tables").fadeIn(1250).css("display", "block");    
+    $("#conversion-tables").fadeIn(1250).css("display", "visible");    
 
     // Refreshes the page if either selection has changed
     $("select#UserInputCurrency").change(function() {
