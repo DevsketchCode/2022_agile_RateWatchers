@@ -249,7 +249,7 @@ footer a {
   text-align: center;
 }
 
-#conversion-table-one, 
+#conversion-table-one,
 #conversion-table-two {
   overflow-y: auto;
 }
@@ -261,7 +261,7 @@ table {
   width: 100%;
 }
 
-th, 
+th,
 td {
   border: 2px outset white;
   border-radius: 5px;
