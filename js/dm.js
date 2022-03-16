@@ -144,6 +144,9 @@ document.querySelector("#UserInputAmount").addEventListener("keydown", (event) =
 
 // Event listener for the submit button contains the logic for DOM manipulation.
 document.querySelector("#convertForm").addEventListener("submit", function() {
+  
+  // Alert user conversions may not be up to date
+  alert("Conversions may not be up to date.");
 
   // Get Values Form User Input
   var amountEntered = document.querySelector("#UserInputAmount").value;
@@ -250,8 +253,8 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   function displayStats(){
    
     
-    var newFlagStats = document.querySelector("#NewFlag");
-    var newFlagStatsStatus = 1;
+    let newFlagStats = document.querySelector("#NewFlag");
+    let newFlagStatsStatus = 1;
     // Display stats for new country on click
     newFlagStats.onclick = function() {
       if(newFlagStatsStatus === 1){
@@ -266,8 +269,8 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
     };
       
     // Display stats for origin country on click
-    var originFlagStats = document.querySelector("#OriginFlag");
-    var originFlagStatus = 1;
+    let originFlagStats = document.querySelector("#OriginFlag");
+    let originFlagStatus = 1;
     originFlagStats.onclick = function() {
       if(originFlagStatus === 1){
         originFlagStats.innerHTML = "Population: " + originPop + "<br />Language: " + originLang + "<br />GDP: " + originGDP + "<br />Capital: " + originCap + "<br />Leader: " + originLead;
@@ -283,8 +286,8 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
     
     // Display image of currency sign
     // New country currency
-    var newCountryCurrency = document.querySelector("#ConvertedAmount");
-    var newCurrencyStatus = 1;
+    let newCountryCurrency = document.querySelector("#ConvertedAmount");
+    let newCurrencyStatus = 1;
     newCountryCurrency.onclick = function(){
       if(newCurrencyStatus === 1){
         newCountryCurrency.innerHTML = "<img src=\"images/" + firstConvertToCountry_CurrencyCode + "_Currency.png\">";
@@ -298,8 +301,8 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
     };
     
     // Origin country currency
-    var originCountryCurrency = document.querySelector("#AmountEntered");
-    var originCurrencyStatus = 1;
+    let originCountryCurrency = document.querySelector("#AmountEntered");
+    let originCurrencyStatus = 1;
     originCountryCurrency.onclick = function(){
       if(originCurrencyStatus === 1){
         originCountryCurrency.innerHTML = "<img src=\"images/" + originCurrencyCode + "_Currency.png\">";
@@ -314,8 +317,8 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
      
      
     // Display on touch
-    var newFlagStatsTouch = document.querySelector("#NewFlag");
-    var originFlagStatsTouch = document.querySelector("#OriginFlag");
+    let newFlagStatsTouch = document.querySelector("#NewFlag");
+    let originFlagStatsTouch = document.querySelector("#OriginFlag");
     
     // Display origin stats on touch (mobile)
     function touchEndNew(){
