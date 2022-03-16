@@ -252,32 +252,62 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   // Display stats for new country on click
   function displayStats(){
    
+    // Fade out image and fade in stats
+    function fadeInStats(id, stats){
+      $(id).fadeOut("slow", function(){
+        id.innerHTML = stats;
+        $(id).fadeIn("slow")
+      })
+    }
     
+    // Fade out stats and fade in img
+    function fadeInImage(id, img){
+      $(id).fadeOut("slow", function(){
+        id.innerHTML = img
+        $(id).fadeIn("slow")
+      })
+    }
+    
+    // Fade in currency image
+    function fadeInCurrencyImg(id, img){
+      $(id).fadeOut("slow", function(){
+        id.innerHTML = img;
+        $(id).fadeIn("slow")
+      })
+    }
+    
+    
+    // Variables for new flag
     let newFlagStats = document.querySelector("#NewFlag");
     let newFlagStatsStatus = 1;
+    let newStats = "Population: " + newPop + "<br />Language: " + newLang + "<br />GDP: " + newGDP + "<br />Capital: " + newCap + "<br />Leader: " + newLead;
+    let newFlag = "<img src=\"images/" + newCountryFlag + "Flag.png\">";
     // Display stats for new country on click
     newFlagStats.onclick = function() {
       if(newFlagStatsStatus === 1){
-        newFlagStats.innerHTML = "Population: " + newPop + "<br />Language: " + newLang + "<br />GDP: " + newGDP + "<br />Capital: " + newCap + "<br />Leader: " + newLead;
+        fadeInStats(newFlagStats, newStats);
         newFlagStatsStatus = 0;
         return newFlagStatsStatus;
       } else {
-        newFlagStats.innerHTML = "<img src=\"images/" + newCountryFlag + "Flag.png\">";
+        fadeInImage(newFlagStats, newFlag);
         newFlagStatsStatus = 1;
         return newFlagStatsStatus;
       }
     };
       
     // Display stats for origin country on click
+    // Variables for origin flag
     let originFlagStats = document.querySelector("#OriginFlag");
+    let originStats = "Population: " + originPop + "<br />Language: " + originLang + "<br />GDP: " + originGDP + "<br />Capital: " + originCap + "<br />Leader: " + originLead;
+    let originFlag = "<img src=\"images/" + originCountryFlag + "Flag.png\">";
     let originFlagStatus = 1;
     originFlagStats.onclick = function() {
       if(originFlagStatus === 1){
-        originFlagStats.innerHTML = "Population: " + originPop + "<br />Language: " + originLang + "<br />GDP: " + originGDP + "<br />Capital: " + originCap + "<br />Leader: " + originLead;
+        fadeInStats(originFlagStats, originStats);
         originFlagStatus = 0;
         return originFlagStatus;
       } else {
-        originFlagStats.innerHTML = "<img src=\"images/" + originCountryFlag + "Flag.png\">";
+        fadeInImage(originFlagStats, originFlag);
         originFlagStatus = 1;
         return originFlagStatus;
       }
@@ -287,14 +317,16 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
     // Display image of currency sign
     // New country currency
     let newCountryCurrency = document.querySelector("#ConvertedAmount");
+    let newCountryCurrencyImg = "<img src=\"images/" + firstConvertToCountry_CurrencyCode + "_Currency.png\">";
+    let newCountryAmount = newFinalAmount;
     let newCurrencyStatus = 1;
     newCountryCurrency.onclick = function(){
       if(newCurrencyStatus === 1){
-        newCountryCurrency.innerHTML = "<img src=\"images/" + firstConvertToCountry_CurrencyCode + "_Currency.png\">";
+        fadeInCurrencyImg(newCountryCurrency, newCountryCurrencyImg);
         newCurrencyStatus = 0;
         return newCurrencyStatus;
       } else {
-        newCountryCurrency.innerHTML = newFinalAmount;
+        fadeInCurrencyImg(newCountryCurrency, newCountryAmount);
         newCurrencyStatus = 1;
         return newCurrencyStatus;
       }
@@ -302,14 +334,16 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
     
     // Origin country currency
     let originCountryCurrency = document.querySelector("#AmountEntered");
+    let originCountryCurrencyImg = "<img src=\"images/" + originCurrencyCode + "_Currency.png\">";
+    let originCountryAmount = amountEntered;
     let originCurrencyStatus = 1;
     originCountryCurrency.onclick = function(){
       if(originCurrencyStatus === 1){
-        originCountryCurrency.innerHTML = "<img src=\"images/" + originCurrencyCode + "_Currency.png\">";
+        fadeInCurrencyImg(originCountryCurrency, originCountryCurrencyImg);
         originCurrencyStatus = 0;
         return originCurrencyStatus;
       } else {
-        originCountryCurrency.innerHTML = amountEntered;
+        fadeInCurrencyImg(originCountryCurrency, originCountryAmount);
         originCurrencyStatus = 1;
         return originCurrencyStatus;
       }
