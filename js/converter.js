@@ -21,6 +21,12 @@ validate the data and convert the currencies.
   var newGDP;
   var newCap;
   var newLead;
+  
+  // Variable for base conversion rates
+  var originCurrencyCode = "";
+  var originSelectionBaseRate = "";
+  var firstConvertToCountry_CurrencyCode = "";
+  var firstConvertToCountry_BaseRate = 0;
 
   // Functions
 
@@ -84,12 +90,7 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
     // Variable to grab new country flag
     var countryNewData = document.querySelector("#UserConvertCurrency").value;
 
-    // Variable for base conversion rates
-    var originCurrencyCode = "";
-    var originSelectionBaseRate = "";
-    var firstConvertToCountry_CurrencyCode = "";
-    var firstConvertToCountry_BaseRate = 0;
-
+    
     // Switch case to grab what was selected and asign stats
     // This will also set the base conversion rate for the selected country. Base Rate = the countries rate to 1 USD
     switch(countryOriginData) {
@@ -299,11 +300,11 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
       break;
       
       case "Barbados":
-        originPop = "287,000";
-        originLang = "English";
-        originGDP = "4.366 Billion";
-        originCap = "Bridgetown";
-        originLead = "Mia Mottley";
+        newPop = "287,000";
+        newLang = "English";
+        newGDP = "4.366 Billion";
+        newCap = "Bridgetown";
+        newLead = "Mia Mottley";
         firstConvertToCountry_CurrencyCode = "BBD";
         firstConvertToCountry_BaseRate = baseRateMap.get(firstConvertToCountry_CurrencyCode);
       break;

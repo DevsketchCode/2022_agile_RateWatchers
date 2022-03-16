@@ -20,7 +20,7 @@ function AddOption(selection) {
   const countryCurrency = ["United States Dollar (USD)", "Mexican Peso (MXN)", "Canadian Dollar (CAD)", "Chinese Yuan Renminbi (CNY)", "Australian dollar (AUD)",
    "Barbadian Dollar (BBD)", "Bolivian Boliviano (BOB)", "Danish Krone (DKK)", "Egyptian Pound (EGP)", "United States Dollar (USD)", "Gambian Dalasi (GMD)", 
    "Georgian Lari (GEL)", "East Caribbean Dollar (XCD)", "Jamaican Dollar (JMD)", "Malagasy Ariary (MGA)"];
-
+   
   // Sets the options for the drop down fields 
   for(var i = 0; i < country.length; i++) {
     var option = document.createElement("option");
@@ -175,6 +175,15 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   originFlagLabel.appendChild(originFlagImage);
   newFlagLabel.appendChild(newFlagImage);
 
+  //configure map options. We can recycle some of the variables used. 
+  var origin_Map = selectFlag(originSelected.value);
+  var destination_Map = selectFlag(countrySelected.value);
+
+  //configure the option to throw in a map.
+  //<img src="images/australia_map.png">
+  document.querySelector("#OriginMap").innerHTML = '<img src="images/' + origin_Map + '_map.png" style="max-height:200px;max-width:200px;height:auto;width:auto;">';
+  document.querySelector("#NewMap").innerHTML = '<img src="images/' + destination_Map + '_map.png" style="max-height:200px;max-width:200px;height:auto;width:auto;">';
+
   // Populate the Results Fields
   FillConversionResultsTable(amountEntered, originCurrencyName, newCurrencyName, newFinalAmount, newFinalRate);
 
@@ -263,6 +272,37 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
         return originFlagStatus;
       }
       
+    };
+    
+    // Display image of currency sign
+    // New country currency
+    var newCountryCurrency = document.querySelector("#ConvertedAmount");
+    var newCurrencyStatus = 1;
+    newCountryCurrency.onclick = function(){
+      if(newCurrencyStatus === 1){
+        newCountryCurrency.innerHTML = "<img src=\"images/" + firstConvertToCountry_CurrencyCode + "_Currency.png\">";
+        newCurrencyStatus = 0;
+        return newCurrencyStatus;
+      } else {
+        newCountryCurrency.innerHTML = newFinalAmount;
+        newCurrencyStatus = 1;
+        return newCurrencyStatus;
+      }
+    };
+    
+    // Origin country currency
+    var originCountryCurrency = document.querySelector("#AmountEntered");
+    var originCurrencyStatus = 1;
+    originCountryCurrency.onclick = function(){
+      if(originCurrencyStatus === 1){
+        originCountryCurrency.innerHTML = "<img src=\"images/" + originCurrencyCode + "_Currency.png\">";
+        originCurrencyStatus = 0;
+        return originCurrencyStatus;
+      } else {
+        originCountryCurrency.innerHTML = amountEntered;
+        originCurrencyStatus = 1;
+        return originCurrencyStatus;
+      }
     };
      
      
