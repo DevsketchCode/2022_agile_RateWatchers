@@ -256,24 +256,24 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
     function fadeInStats(id, stats){
       $(id).fadeOut("slow", function(){
         id.innerHTML = stats;
-        $(id).fadeIn("slow")
-      })
+        $(id).fadeIn("slow");
+      });
     }
     
     // Fade out stats and fade in img
     function fadeInImage(id, img){
       $(id).fadeOut("slow", function(){
-        id.innerHTML = img
-        $(id).fadeIn("slow")
-      })
+        id.innerHTML = img;
+        $(id).fadeIn("slow");
+      });
     }
     
     // Fade in currency image
     function fadeInCurrencyImg(id, img){
       $(id).fadeOut("slow", function(){
         id.innerHTML = img;
-        $(id).fadeIn("slow")
-      })
+        $(id).fadeIn("slow");
+      });
     }
     
     
