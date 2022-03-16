@@ -6,21 +6,21 @@ validate the data and convert the currencies.
 
 // Set global variables so they can be used in both fileSize
 // Variable for total after conversion and rate
-  var newFinalAmount;
-  var newFinalRate;
+  let newFinalAmount;
+  let newFinalRate;
   
 // Variables for country stats
-  var originPop;
-  var originLang;
-  var originGDP;
-  var originCap;
-  var originLead;
+  let originPop;
+  let originLang;
+  let originGDP;
+  let originCap;
+  let originLead;
   
-  var newPop;
-  var newLang;
-  var newGDP;
-  var newCap;
-  var newLead;
+  let newPop;
+  let newLang;
+  let newGDP;
+  let newCap;
+  let newLead;
   
   // Variable for base conversion rates
   var originCurrencyCode = "";
@@ -85,10 +85,10 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
     baseRateMap.set("MGA",3962.31);
     
     // Variable to grab original country flag
-    var countryOriginData = document.querySelector("#UserInputCurrency").value;
+    let countryOriginData = document.querySelector("#UserInputCurrency").value;
     
     // Variable to grab new country flag
-    var countryNewData = document.querySelector("#UserConvertCurrency").value;
+    let countryNewData = document.querySelector("#UserConvertCurrency").value;
 
     
     // Switch case to grab what was selected and asign stats
