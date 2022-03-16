@@ -192,6 +192,10 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   document.querySelector("#OriginMap").innerHTML = '<img src="images/' + origin_Map + '_map.png" style="max-height:200px;max-width:200px;height:auto;width:auto;">';
   document.querySelector("#NewMap").innerHTML = '<img src="images/' + destination_Map + '_map.png" style="max-height:200px;max-width:200px;height:auto;width:auto;">';
 
+  //Rotate the flags. 
+  document.querySelector("#OldFlag").style.transform = "rotate(360deg)";
+  document.querySelector("#NewFlag").style.transform = "rotate(360deg)";
+
   // Populate the Results Fields
   FillConversionResultsTable(amountEntered, originCurrencyName, newCurrencyName, newFinalAmount, newFinalRate);
 
