@@ -22,8 +22,8 @@ function AddOption(selection) {
    "Georgian Lari (GEL)", "East Caribbean Dollar (XCD)", "Jamaican Dollar (JMD)", "Malagasy Ariary (MGA)"];
    
   // Sets the options for the drop down fields 
-  for(var i = 0; i < country.length; i++) {
-    var option = document.createElement("option");
+  for(let i = 0; i < country.length; i++) {
+    let option = document.createElement("option");
     option.value = country[i];
     option.text = country[i] + " - " + countryCurrency[i];
     selection.add(option, i);

@@ -200,7 +200,7 @@ function displayBanks(modalContent) {
   modalContent.appendChild(orderedList);
 
   // Creates the list items
-  for(i = 0; i < bankList.length; i++) {
+  for(let i = 0; i < bankList.length; i++) {
     listItem = document.createElement("LI");
     listItem.innerHTML = bankList[i];
     document.querySelector("#BankList").appendChild(listItem);
