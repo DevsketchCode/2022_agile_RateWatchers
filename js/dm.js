@@ -157,11 +157,13 @@ document.querySelector("#UserInputAmount").addEventListener("keydown", (event) =
   }
 });
 
+function disclaimer() {
+    // Alert user conversions may not be up to date
+    alert("Conversions may not be up to date.");
+}
+
 // Event listener for the submit button contains the logic for DOM manipulation.
 document.querySelector("#convertForm").addEventListener("submit", function() {
-  
-  // Alert user conversions may not be up to date
-  alert("Conversions may not be up to date.");
 
   // Show the reset button
   var resetButton = document.querySelector("#btn-reset");
