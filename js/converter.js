@@ -37,20 +37,44 @@ validate the data and convert the currencies.
     alert("Flags can be clicked to display extra information about them.");
   }
 
+    // Get formatting for the table amounts
+    function getAmountWithCurrencySymbol (amount, isOrigin) {
+      var amountText;
+      if (isOrigin) {
+        // Set the currency symbols for the origin currency
+        if(originCurSymbolBeforeAmt) {
+          amountText = originCurSymbol + " " + amount;
+        } else {
+          amountText = amount + " " + originCurSymbol;
+        }
+      } else {
+        // Set the currency symbols for the converted currency
+        if(newCurSymbolBeforeAmt) {
+          amountText = newCurSymbol + " " + amount;
+        } else {
+          amountText = amount + " " + newCurSymbol;
+        }
+      }
+      return amountText;
+    }
+
   // Calculates the values for the tables
-  function updateTableAmounts (rate, tableCell, tablePreset) {
+  function updateTableAmounts (rate, tableCell, tablePreset, isFromOrigin) {
 
     // Preset amounts
     var presetAmount = [5, 10, 50, 100, 200];
     var tableAmount = 0;
     var cellCounter = 1;
 
+    // Get selected fields from dropdown
+
     for (i = 0; i < presetAmount.length; i++) {
+
 
       // Calculates the amount and adds it to an array
     tableAmount = Math.round((rate * presetAmount[i])*100)/100;
-      $("#" + tableCell + cellCounter).html(tableAmount);
-      $("#" + tablePreset + cellCounter).html(presetAmount[i]);
+      $("#" + tableCell + cellCounter).html(getAmountWithCurrencySymbol(tableAmount, !isFromOrigin));
+      $("#" + tablePreset + cellCounter).html(getAmountWithCurrencySymbol(presetAmount[i], isFromOrigin));
       cellCounter++;
     }
     
@@ -480,8 +504,8 @@ document.querySelector("#convertForm").addEventListener("submit", function(e) {
     newFinalAmount = Math.round((newFinalRate * userInput)*100)/100;
 
     // Sets the cells for the first table
-    updateTableAmounts(newFinalRate, "TableOneAmount", "TableOneSet");
+    updateTableAmounts(newFinalRate, "TableOneAmount", "TableOneSet", true);
     // Sets the cells for the second table
-    updateTableAmounts(secondFinalRate, "TableTwoAmount", "TableTwoSet");
+    updateTableAmounts(secondFinalRate, "TableTwoAmount", "TableTwoSet", false);
   }
 });
