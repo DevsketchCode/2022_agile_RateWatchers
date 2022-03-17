@@ -403,6 +403,26 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
   displayStats();
   
  
+  //Rotate the flag images using jQuery
+  $(function() {
+
+    var $OriginFlag = $('#OriginFlag');
+    var $NewFlag = $('#NewFlag');
+
+    $OriginFlag.rotate({
+        duration: 2500,
+        angle: 0,
+        center: [50, 50],
+        animateTo: -360
+    });
+    $NewFlag.rotate({
+        duration: 2500,
+        angle: 0,
+        center: [50, 50],
+        animateTo: -360
+    });
+    //.rotate is not an actual jQuery method. But this program gets fooled into thinking it is because we have the js/jQueryRotate.min.js. 
+})
   
 });
 
