@@ -111,17 +111,20 @@ function selectFlag(countrySelection) {
   return countrySelected;
 }
 
+// Global variable to grab for fade in and fade out
+let convertedAmtText;
+let amountText;
 // Fill Results Fields
 function FillConversionResultsTable(amountEntered, originCurrency, newCurrency, newFinalAmount, newFinalRate) {
 
   // Determine if the currency symbol should show before or after the amount
-  let amountText;
+  
   if(originCurSymbolBeforeAmt) {
     amountText = originCurSymbol + " " + amountEntered;
   } else {
     amountText = amountEntered + " " + originCurSymbol;
   }
-  let convertedAmtText;
+  
   if(newCurSymbolBeforeAmt) {
     convertedAmtText = newCurSymbol + " " + newFinalAmount;
   } else {
@@ -339,7 +342,7 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
     // New country currency
     let newCountryCurrency = document.querySelector("#ConvertedAmount");
     let newCountryCurrencyImg = "<img src=\"images/" + firstConvertToCountry_CurrencyCode + "_Currency.png\">";
-    let newCountryAmount = newFinalAmount;
+    let newCountryAmount = convertedAmtText;
     let newCurrencyStatus = 1;
     newCountryCurrency.onclick = function(){
       if(newCurrencyStatus === 1){
@@ -356,7 +359,7 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
     // Origin country currency
     let originCountryCurrency = document.querySelector("#AmountEntered");
     let originCountryCurrencyImg = "<img src=\"images/" + originCurrencyCode + "_Currency.png\">";
-    let originCountryAmount = amountEntered;
+    let originCountryAmount = amountText;
     let originCurrencyStatus = 1;
     originCountryCurrency.onclick = function(){
       if(originCurrencyStatus === 1){
