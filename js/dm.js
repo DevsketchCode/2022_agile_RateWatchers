@@ -410,18 +410,18 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
     var $NewFlag = $('#NewFlag');
 
     $OriginFlag.rotate({
-        duration: 2500,
+        duration: 3000,
         angle: 0,
         center: [50, 50],
         animateTo: -360
     });
     $NewFlag.rotate({
-        duration: 2500,
+        duration: 3000,
         angle: 0,
         center: [50, 50],
         animateTo: -360
     });
-});
+  });
   
 });
 
