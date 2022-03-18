@@ -8,20 +8,33 @@
 
 (function($) {
     var supportedCSS,supportedCSSOrigin, styles=document.getElementsByTagName("head")[0].style,toCheck="transformProperty WebkitTransform OTransform msTransform MozTransform".split(" ");
-    for (var a = 0; a < toCheck.length; a++) if (styles[toCheck[a]] !== undefined) { supportedCSS = toCheck[a]; }
+    for (var a = 0; a < toCheck.length; a++) {
+      if (styles[toCheck[a]] !== undefined) { supportedCSS = toCheck[a]; }
+    }
     if (supportedCSS) {
       supportedCSSOrigin = supportedCSS.replace(/[tT]ransform/,"TransformOrigin");
-      if (supportedCSSOrigin[0] == "T") supportedCSSOrigin[0] = "t";
+      if (supportedCSSOrigin[0] === "T") {
+        supportedCSSOrigin[0] = "t";
+      }
     }
 
     // Bad eval to preven google closure to remove it from code o_O
-    eval('IE = "v"=="\v"');
+    if("v"==="\v") {
+      IE = true;
+    } else {
+      IE = false;
+    }
+
 
     jQuery.fn.extend({
         rotate:function(parameters)
         {
-          if (this.length===0||typeof parameters=="undefined") return;
-          if (typeof parameters=="number") parameters={angle:parameters};
+          if (this.length===0||typeof parameters==="undefined") { 
+            return; 
+          }
+          if (typeof parameters==="number") {
+            parameters={angle:parameters};
+          }
           var returned=[];
           for (var i=0,i0=this.length;i<i0;i++)
           {
@@ -74,7 +87,7 @@
 
           this._img = this._rootObj = this._eventObj = img;
           this._handleRotation(parameters);
-        }
+        };
       } else {
         return function(img,parameters) {
           this._img = img;
@@ -95,7 +108,7 @@
             // TODO: Remove jQuery dependency
             jQuery(this._img).bind("load", function(){ self._Loader(); });
           }
-        }
+        };
       }
     })();
 
@@ -111,28 +124,28 @@
         this._parameters.duration = 'duration' in parameters ? parameters.duration : parameters.duration || this._parameters.duration || 1000;
         this._parameters.callback = parameters.callback || this._parameters.callback || this._emptyFunction;
         this._parameters.center = parameters.center || this._parameters.center || ["50%","50%"];
-        if (typeof this._parameters.center[0] == "string") {
+        if (typeof this._parameters.center[0] === "string") {
           this._rotationCenterX = (parseInt(this._parameters.center[0],10) / 100) * this._imgWidth * this._aspectW;
         } else {
           this._rotationCenterX = this._parameters.center[0];
         }
-        if (typeof this._parameters.center[1] == "string") {
+        if (typeof this._parameters.center[1] === "string") {
           this._rotationCenterY = (parseInt(this._parameters.center[1],10) / 100) * this._imgHeight * this._aspectH;
         } else {
           this._rotationCenterY = this._parameters.center[1];
         }
 
-        if (parameters.bind && parameters.bind != this._parameters.bind) { this._BindEvents(parameters.bind); }
+        if (parameters.bind && parameters.bind !== this._parameters.bind) { this._BindEvents(parameters.bind); }
       },
       _emptyFunction: function(){},
-      _defaultEasing: function (x, t, b, c, d) { return -c * ((t=t/d-1)*t*t*t - 1) + b },
+      _defaultEasing: function (x, t, b, c, d) { return -c * ((t=t/d-1)*t*t*t - 1) + b; },
       _handleRotation : function(parameters, dontcheck){
         if (!supportedCSS && !this._img.complete && !dontcheck) {
           this._onLoadDelegate.push(parameters);
           return;
         }
         this._setupParameters(parameters);
-        if (this._angle==this._parameters.animateTo) {
+        if (this._angle===this._parameters.animateTo) {
           this._rotate(this._angle);
         }
         else {
@@ -146,21 +159,27 @@
           // Unbinding previous Events
           if (this._parameters.bind){
             var oldEvents = this._parameters.bind;
-            for (var a in oldEvents) if (oldEvents.hasOwnProperty(a))
+            for (var a in oldEvents) {
+              if (oldEvents.hasOwnProperty(a)) {
               // TODO: Remove jQuery dependency
               jQuery(this._eventObj).unbind(a,oldEvents[a]);
+              }
+            }
           }
 
-        this._parameters.bind = events;
-        for (var a in events) if (events.hasOwnProperty(a))
-          // TODO: Remove jQuery dependency
-          jQuery(this._eventObj).bind(a,events[a]);
+          this._parameters.bind = events;
+          for (var ab in events) {
+            if (events.hasOwnProperty(ab)) {
+              // TODO: Remove jQuery dependency
+              jQuery(this._eventObj).bind(ab,events[ab]);
+            }
+          }
         }
       },
 
       _Loader:(function()
       {
-        if (IE)
+        if (IE) {
           return function() {
             var width=this._img.width;
             var height=this._img.height;
@@ -195,11 +214,12 @@
             this._rootObj.className=this._img.className;
             this._eventObj = this._rootObj;
             var parameters;
-            while (parameters = this._onLoadDelegate.shift()) {
+            while (parameters === this._onLoadDelegate.shift()) {
               this._handleRotation(parameters, true);
             }
-          }
-          else return function () {
+          };
+        } else {
+          return function () {
             this._rootObj.setAttribute('id',this._img.getAttribute('id'));
             this._rootObj.className=this._img.className;
 
@@ -229,10 +249,11 @@
 
             this._cnv=this._canvas.getContext('2d');
             var parameters;
-            while (parameters = this._onLoadDelegate.shift()) {
+            while (parameters === this._onLoadDelegate.shift()) {
               this._handleRotation(parameters, true);
             }
-          }
+          };
+        }
       })(),
 
       _animateStart:function()
@@ -240,13 +261,13 @@
         if (this._timer) {
           clearTimeout(this._timer);
         }
-        this._animateStartTime = +new Date;
+        this._animateStartTime = +new Date();
         this._animateStartAngle = this._angle;
         this._animate();
       },
       _animate:function()
       {
-        var actualTime = +new Date;
+        var actualTime = +new Date();
         var checkEnd = actualTime - this._animateStartTime > this._parameters.duration;
 
         // TODO: Bug for animatedGif for static rotation ? (to test)
@@ -281,26 +302,23 @@
       _rotate : (function()
       {
         var rad = Math.PI/180;
-        if (IE)
-          return function(angle)
-        {
-          this._angle = angle;
-          this._container.style.rotation=(angle%360)+"deg";
-          this._vimage.style.top = -(this._rotationCenterY - this._imgHeight/2) + "px";
-          this._vimage.style.left = -(this._rotationCenterX - this._imgWidth/2) + "px";
-          this._container.style.top = this._rotationCenterY - this._imgHeight/2 + "px";
-          this._container.style.left = this._rotationCenterX - this._imgWidth/2 + "px";
-
-        }
-          else if (supportedCSS)
-          return function(angle){
+        if (IE) {
+          return function(angle) {
             this._angle = angle;
-            this._img.style[supportedCSS]="rotate("+(angle%360)+"deg)";
-            this._img.style[supportedCSSOrigin]=this._parameters.center.join(" ");
-          }
-          else
-            return function(angle)
-          {
+            this._container.style.rotation=(angle%360)+"deg";
+            this._vimage.style.top = -(this._rotationCenterY - this._imgHeight/2) + "px";
+            this._vimage.style.left = -(this._rotationCenterX - this._imgWidth/2) + "px";
+            this._container.style.top = this._rotationCenterY - this._imgHeight/2 + "px";
+            this._container.style.left = this._rotationCenterX - this._imgWidth/2 + "px";
+            };
+          } else if (supportedCSS) {
+          return function(angle){
+              this._angle = angle;
+              this._img.style[supportedCSS]="rotate("+(angle%360)+"deg)";
+              this._img.style[supportedCSSOrigin]=this._parameters.center.join(" ");
+            };
+          } else {
+            return function(angle) {
             this._angle = angle;
             angle=(angle%360)* rad;
             // clear canvas
@@ -314,20 +332,22 @@
             this._cnv.translate(-this._rotationCenterX,-this._rotationCenterY);		// move image to its center, so we can rotate around its center
             this._cnv.scale(this._aspectW,this._aspectH); // SCALE - if needed ;)
             this._cnv.drawImage(this._img, 0, 0);							// First - we draw image
-          }
-
+          };
+        }
       })()
-      }
+      };
 
       if (IE)
       {
         Wilq32.PhotoEffect.prototype.createVMLNode=(function(){
           document.createStyleSheet().addRule(".rvml", "behavior:url(#default#VML)");
           try {
-            !document.namespaces.rvml && document.namespaces.add("rvml", "urn:schemas-microsoft-com:vml");
-            return function (tagName) {
-              return document.createElement('<rvml:' + tagName + ' class="rvml">');
-            };
+              if(!document.namespaces.rvml && document.namespaces.add("rvml", "urn:schemas-microsoft-com:vml"))
+              {
+                return function (tagName) {
+                  return document.createElement('<rvml:' + tagName + ' class="rvml">');
+              };
+            }
           } catch (e) {
             return function (tagName) {
               return document.createElement('<' + tagName + ' xmlns="urn:schemas-microsoft.com:vml" class="rvml">');

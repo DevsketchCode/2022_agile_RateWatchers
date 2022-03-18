@@ -422,7 +422,7 @@ document.querySelector("#convertForm").addEventListener("submit", function() {
         animateTo: -360
     });
     //.rotate is not an actual jQuery method. But this program gets fooled into thinking it is because we have the js/jQueryRotate.min.js. 
-})
+});
   
 });
 
